@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CustomModal from './common/CustomModal';
 import './todo.css';
 const Todo = () => {
 
@@ -58,6 +59,7 @@ const Todo = () => {
                     </ul>
 
                 </div>
+                <CustomModal />
             </div>
         </>
     );
