@@ -100,13 +100,11 @@ li p{
 
 
 @media(max-width:756px){
-    .container-1{
-        width: 90%;
-        padding: 20px;
-    }
     .form_box{
-        max-width: 300px;
         padding:20px;
         margin: 20px auto;
+    }
+    input{
+        flex: 2;
     }
 }

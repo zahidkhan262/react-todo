@@ -11,18 +11,23 @@ const Todo = () => {
     // add todo button
     const addTodo = (e) => {
         e.preventDefault();
-        todo.push({ task_name: inputValue, id:new Date().getTime().toString()})
-        setTodo(todo)
-        setInputValue("")
+        if (!inputValue) {
+            alert("invalid input")
+        } else {
+
+            todo.push({ task_name: inputValue, id: new Date().getTime().toString() })
+            setTodo(todo)
+            setInputValue("")
+        }
     }
 
     // delete todo button
-    const deleteTodo=(index)=>{
-        const newTodo=todo.filter((ele,i)=>{
-            return index !==i
+    const deleteTodo = (index) => {
+        const newTodo = todo.filter((ele, i) => {
+            return index !== i
         })
         setTodo(newTodo)
-        
+
         console.log(newTodo)
     }
     return (
@@ -39,23 +44,23 @@ const Todo = () => {
                         </div>
                     </form>
                     <ul className="todo_list">
-                        
-                    {
-                       todo.length ? todo.map((item,index) => {
-                            return (
-                               
-                                        <li className='d-flex-1' key={index}>
-                                          <p>  {item.task_name} </p>
-                                            <span>
-                                                <button className='edit_btn'>Edit</button>
-                                                <button className='delete_btn' onClick={()=>{deleteTodo(index)}}>Delete</button>
-                                            </span>
-                                        </li>  
-                               
-                            )
-                        })
-                        :<h3 className='center'>There is no Data..</h3>
-                    }
+
+                        {
+                            todo.length ? todo.map((item, index) => {
+                                return (
+
+                                    <li className='d-flex-1' key={index}>
+                                        <p>  {item.task_name} </p>
+                                        <span>
+                                            <button className='edit_btn'>Edit</button>
+                                            <button className='delete_btn' onClick={() => { deleteTodo(index) }}>Delete</button>
+                                        </span>
+                                    </li>
+
+                                )
+                            })
+                                : <h3 className='center'>There is no Data..</h3>
+                        }
                     </ul>
 
                 </div>
