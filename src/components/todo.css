@@ -106,5 +106,6 @@ li p{
     }
     input{
         flex: 2;
+        width: 100%;
     }
 }
