@@ -28,7 +28,7 @@ input,button{
     align-items: center;
 }
 .container-1{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background: #011a44;
     padding: 60px 0;
@@ -38,7 +38,6 @@ input,button{
     background: linear-gradient(146deg,var(--main_color)50%, var(--white_color)50%);
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     padding: 20px;
-    height: 400px;
     margin: auto;
 }
 .input_field{
@@ -46,7 +45,6 @@ input,button{
     margin: 20px auto;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-
 }
 input{
     flex: 3;
@@ -98,4 +96,17 @@ li p{
 }
 .delete_btn{
     background: var(--danger_color);
+}
+
+
+@media(max-width:756px){
+    .container-1{
+        width: 90%;
+        padding: 20px;
+    }
+    .form_box{
+        max-width: 300px;
+        padding:20px;
+        margin: 20px auto;
+    }
 }
