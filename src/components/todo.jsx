@@ -17,8 +17,6 @@ const Todo = () => {
         e.preventDefault();
         if (!inputValue) {
             toast.error("Invalid Input")
-        } else if (inputValue <= 3) {
-            toast.error("Input is lesser")
         } else {
             todo.push({ task_name: inputValue, id: new Date().getTime().toString() })
             setTodo(todo)
@@ -30,7 +28,7 @@ const Todo = () => {
     // delete todo button
     const deleteTodo = (index) => {
         const newTodo = todo.filter((ele, i) => {
-            return index !== ele.i
+            return index !== i
         })
         setTodo(newTodo)
 
