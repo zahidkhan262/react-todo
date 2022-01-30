@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import CustomModal from './common/CustomModal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './todo.css';
 const Todo = () => {
 
@@ -12,11 +14,12 @@ const Todo = () => {
     const addTodo = (e) => {
         e.preventDefault();
         if (!inputValue) {
-            alert("invalid input")
+            toast.error("Invalid Input")
         } else {
 
             todo.push({ task_name: inputValue, id: new Date().getTime().toString() })
             setTodo(todo)
+            toast.success("Task Added")
             setInputValue("")
         }
     }
@@ -66,6 +69,19 @@ const Todo = () => {
                 </div>
                 <CustomModal />
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
         </>
     );
 }

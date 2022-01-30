@@ -31,10 +31,10 @@ input,button{
     min-height: 100vh;
     width: 100%;
     background: #011a44;
-    padding: 60px 0;
+    padding: 60px 20px;
 }
 .form_box{
-    width: 600px;
+    max-width: 600px;
     background: linear-gradient(146deg,var(--main_color)50%, var(--white_color)50%);
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     padding: 20px;
@@ -72,7 +72,7 @@ li{
     width: 100%;
     list-style: none;
     background: #00a3e4a1;
-    padding: 10px  20px;
+    padding: 10px;
     border-radius: 3px;
     margin: 10px 0;
     color: var(--white_color);
@@ -107,5 +107,8 @@ li p{
     input{
         flex: 2;
         width: 100%;
+    }
+    .edit_btn, .delete_btn{
+        padding: 4px 6px;
     }
 }
