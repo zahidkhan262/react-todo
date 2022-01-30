@@ -14,7 +14,8 @@
 .center{
     text-align: center;
     font-size: 22px;
-    text-shadow: 0 0 3px var(--danger_color), 0 0 1px var(--white_color);
+    color: #03a9f4;
+    font-weight: 900;
 }
 input,button{
     border: none;
@@ -32,6 +33,7 @@ input,button{
     width: 100%;
     background: #011a44;
     padding: 60px 20px;
+    position: relative;
 }
 .form_box{
     max-width: 600px;
@@ -45,6 +47,7 @@ input,button{
     margin: 20px auto;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 20px;
 }
 input{
     flex: 3;
@@ -97,18 +100,45 @@ li p{
 .delete_btn{
     background: var(--danger_color);
 }
+.active{display: none;}
+.modals_container{
+    background: rgba(49,49,49,0.8);
+}
+
+.modals_body{
+    background: var(--white_color);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 400px;
+}
+.modal_header{
+    background: #03a9f4;
+    padding: 10px;
+}
 
 
 @media(max-width:756px){
     .form_box{
-        padding:20px;
+        width: 100%;
+        padding:20px 10px;
         margin: 20px auto;
+    }
+    .input_field{
+        width: 100%;
+
     }
     input{
         flex: 2;
-        width: 100%;
+        padding: 8px;
+        font-size: 14px;
     }
-    .edit_btn, .delete_btn{
+    .edit_btn, .delete_btn,.add_btn{
         padding: 4px 6px;
+        font-size: 12px;
     }
 }
