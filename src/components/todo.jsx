@@ -5,11 +5,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import './todo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import FirstModal from './material-ui/FirstModal';
 const Todo = () => {
 
     const [inputValue, setInputValue] = useState("");
-
     const [todo, setTodo] = useState([]);
+
+    const [index,setIndex] = useState(null);
+    const [showModal, setShowModal] = useState(false)
+    const [animation, setAnimation] = useState(false)
 
 
     // add todo button
@@ -17,9 +21,11 @@ const Todo = () => {
         e.preventDefault();
         if (!inputValue) {
             toast.error("Invalid Input")
-        } else {
-            todo.push({ task_name: inputValue, id: new Date().getTime().toString() })
-            setTodo(todo)
+        } 
+        else {
+            let temp = todo;
+            temp.push( inputValue)
+            setTodo(temp)
             toast.success("Task Added")
             setInputValue("")
         }
@@ -38,8 +44,22 @@ const Todo = () => {
     // edit Todo by find method
 
     const editTodo = (index) => {
-        console.log(index)
+        setIndex(index)
+        console.log(todo);
+        setInputValue(todo[index])
+        setShowModal(true)
+        setAnimation(true)
     }
+    const handleUpdateTodo = () => {
+        let temp = todo;
+        temp[index] = inputValue;
+        console.log(temp);
+        setTodo(temp);
+        setShowModal(false);
+        setInputValue("")
+        toast.success("Todo Updated")
+    }
+    const props={inputValue,editTodo,showModal, setShowModal,setInputValue,handleUpdateTodo,animation}
 
     return (
         <>
@@ -62,7 +82,7 @@ const Todo = () => {
                                 return (
 
                                     <li className='d-flex-1' key={index}>
-                                        <p>  {item.task_name} </p>
+                                        <p> {item} </p>
                                         <span>
                                             <button className='edit_btn' onClick={() => editTodo(index)}>Edit</button>
                                             <button className='delete_btn' onClick={() => { deleteTodo(index) }}>Delete</button>
@@ -75,12 +95,13 @@ const Todo = () => {
                         }
                     </ul>
                 </div>
-                <CustomModal editTodo={editTodo} />
+                <CustomModal {...props}  />
+                <FirstModal />
             </div>
 
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -89,8 +110,6 @@ const Todo = () => {
                 draggable
                 pauseOnHover
             />
-            {/* Same as */}
-            <ToastContainer />
         </>
     );
 }

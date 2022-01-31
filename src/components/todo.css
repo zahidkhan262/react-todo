@@ -46,7 +46,7 @@ input,button{
     display: flex;
     margin: 20px auto;
     border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    
     padding: 20px;
 }
 input{
@@ -100,24 +100,46 @@ li p{
 .delete_btn{
     background: var(--danger_color);
 }
-.active{display: none;}
+
 .modals_container{
-    background: rgba(49,49,49,0.8);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.205);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: anim 0.3s linear ;
+}
+@keyframes anim{
+    0%, 100%{
+        transition: 0.3s;
+        background: rgba(224, 222, 222, 0.205);
+    }
 }
 
 .modals_body{
     background: var(--white_color);
+    box-shadow: 0 0 20px 10px rgba(0,0,0,0.5);
+    border-radius: 10px;
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    transform: translateY(100%);
     max-width: 600px;
     margin: 0 auto;
-    height: 400px;
+    height: 600px;
+    transition: 0.4s;
+}
+.active{
+    top: 50px;
+    transform: translateY(0%);
+    transition: 0.4s;
 }
 .modal_header{
-    background: #03a9f4;
     padding: 10px;
 }
 
