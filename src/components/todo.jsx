@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import './todo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import FirstModal from './material-ui/FirstModal';
 const Todo = () => {
 
     const [inputValue, setInputValue] = useState("");
@@ -96,7 +95,6 @@ const Todo = () => {
                     </ul>
                 </div>
                 <CustomModal {...props}  />
-                <FirstModal />
             </div>
 
             <ToastContainer
