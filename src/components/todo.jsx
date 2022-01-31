@@ -38,12 +38,12 @@ const Todo = () => {
     // edit Todo by find method
 
     const editTodo = (index) => {
-        console.log(index)
+        toast.warning(`todo id: ${index}`)
     }
+
 
     return (
         <>
-
             <div className="container-1">
                 <div className="form_box">
                     <form onSubmit={addTodo}>
@@ -56,7 +56,6 @@ const Todo = () => {
                         </div>
                     </form>
                     <ul className="todo_list">
-
                         {
                             todo.length ? todo.map((item, index) => {
                                 return (
@@ -68,7 +67,6 @@ const Todo = () => {
                                             <button className='delete_btn' onClick={() => { deleteTodo(index) }}>Delete</button>
                                         </span>
                                     </li>
-
                                 )
                             })
                                 : <h3 className='center'>There is no <FontAwesomeIcon icon={faTimes} style={{ color: "crimson" }} /> Data..</h3>
@@ -89,8 +87,6 @@ const Todo = () => {
                 draggable
                 pauseOnHover
             />
-            {/* Same as */}
-            <ToastContainer />
         </>
     );
 }

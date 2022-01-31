@@ -7,8 +7,7 @@ import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const CustomModal = () => {
 
-    const [showModal, setShowModal] = useState(false)
-
+    const [showModal, setShowModal] = useState(false);
     const modalsHide = () => {
         setShowModal(!showModal)
         modalsHide()
