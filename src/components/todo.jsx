@@ -43,9 +43,7 @@ const Todo = () => {
     // edit Todo by find method
 
     const editTodo = (index) => {
-<<<<<<< HEAD
         toast.warning(`todo id: ${index}`)
-=======
         setIndex(index)
         console.log(todo);
         setInputValue(todo[index])
@@ -60,7 +58,7 @@ const Todo = () => {
         setShowModal(false);
         setInputValue("")
         toast.success("Todo Updated")
->>>>>>> 925996d291dd83c7096d132634d7c1253e14e2db
+
     }
     const props={inputValue,editTodo,showModal, setShowModal,setInputValue,handleUpdateTodo,animation}
 

@@ -1,15 +1,22 @@
 import './App.css';
-import Todo from './components/todo';
-import "bootstrap/dist/css/bootstrap.min.css"
-import Modals from './modals/Modal';
+import CompoA from './context/CompoA';
+import CompoB from './context/CompoB';
+import { UserProvider } from './context/userContext';
+import RouterConfig from './routes/routerConfig';
+
 
 
 function App() {
-  return (
-    <>
-     {/* <Todo/> */}
-     <Modals />
-    </>
+  return (<>
+  <RouterConfig/>
+
+ <UserProvider value="Zahidkhan">
+   <CompoA />
+ </UserProvider>
+<UserProvider value="Gokul sir">
+<CompoB />
+</UserProvider>
+  </>
   );
 }
 

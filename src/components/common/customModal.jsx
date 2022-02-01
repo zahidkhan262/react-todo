@@ -1,24 +1,25 @@
 import React from 'react';
-import './modal.css'
 import '../todo.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 
-<<<<<<< HEAD
-    const [showModal, setShowModal] = useState(false);
-    const modalsHide = () => {
-        setShowModal(!showModal)
-        modalsHide()
-=======
+
+    
 const CustomModal = ({...props}) => {
 
     
+    // const [showModal, setShowModal] = useState(false);
 
+
+
+    // const modalsHide = () => {
+    //     setShowModal(!showModal)
+    //     modalsHide()
      props.modalsHide = () => {
         props.setShowModal(!props.showModal)
->>>>>>> 925996d291dd83c7096d132634d7c1253e14e2db
+
     }
 
     return (
