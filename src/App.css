@@ -20,3 +20,7 @@ a{text-decoration: none!important; color: white!important;}
 .btn-1{
     text-align: center;
 }
+.btn-1 button{
+    margin: 10px;
+    padding: 10px;
+}

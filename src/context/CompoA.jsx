@@ -1,15 +1,11 @@
-import React from 'react';
-import { UserConsumer } from './userContext';
+import {useContext} from 'react';
+import { GlobalContext } from './GLobalContext';
 const CompoA = () => {
+  const {count} = useContext(GlobalContext)
   return (
       <>
-      <UserConsumer>
-          {
-              username=>{
-                  return <h1>what's name {username}</h1>
-              }
-          }
-      </UserConsumer>     
+<p>Here we want to show my counter count by context </p>
+<h2>{count}</h2>
       </>
   )
 };

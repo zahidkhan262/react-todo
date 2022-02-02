@@ -12,13 +12,13 @@ const MenuBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><NavLink exact to="/">Home</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/modal">Modal</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/todo">Todo</NavLink></Nav.Link>
+                            <NavLink  to="/">Home</NavLink>
+                            <NavLink to="/modal">Modal</NavLink>
+                            <NavLink to="/todo">Todo</NavLink>
                         </Nav>
                         <Nav>
-                            <Nav.Link><NavLink to="/signin">SignIn</NavLink></Nav.Link>
-                           <Nav.Link><NavLink to="/signup">SignUp</NavLink></Nav.Link>
+                            <NavLink to="/signin">SignIn</NavLink>
+                           <NavLink to="/signup">SignUp</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

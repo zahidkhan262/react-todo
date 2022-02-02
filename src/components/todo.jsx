@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CustomModal from './common/CustomModal';
+import CustomModal from './common/customModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './todo.css';
