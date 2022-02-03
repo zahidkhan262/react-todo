@@ -38,7 +38,7 @@ const Todo = () => {
         setTodo(newTodo)
 
         console.log(newTodo)
-    }
+}
 
     // edit Todo by find method
 
