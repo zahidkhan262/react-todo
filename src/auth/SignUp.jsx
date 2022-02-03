@@ -1,10 +1,13 @@
 import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { GlobalContext } from '../context/GLobalContext';
 const SignUp = () => {
 
 
+    const history=useNavigate();
     const { register, setRegister } = useContext(GlobalContext);
 
     const [signUpInput, setSignUpInput] = useState({ email: "", password: "" });
@@ -12,6 +15,10 @@ const SignUp = () => {
     const signUp = (e) => {
         e.preventDefault();
         setRegister([...register,signUpInput])
+        // setSignUpInput({email:"",password:""})
+        toast.success("Registered User")
+
+        history("/signin")
 
     }
 
@@ -30,7 +37,7 @@ const SignUp = () => {
                         <h2 className="center">Register Form</h2>
                         <div className="input_form">
                         
-                            <input type="email" placeholder='Enter your Email....'
+                            <input type="text" placeholder='Enter your Email....'
                                 name="email"
                                 value={signUpInput.name} onChange={signUpHandle}
                             />

@@ -4,10 +4,10 @@ export const GlobalContext= createContext();
 
 function GlobalContextProvider(props){
 
+    
+
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
-    const [isLogIn, setIsLogIn] = useState(null)
-
 
     const increase=()=>{
         setCount(count +1)
@@ -16,7 +16,7 @@ function GlobalContextProvider(props){
         setCount(count -1)
     }
 
-    const value={count, increase, decrease, register, setRegister,isLogIn,setIsLogIn}
+    const value={count, increase, decrease, register, setRegister}
 
     return(
         <GlobalContext.Provider value={value}>
