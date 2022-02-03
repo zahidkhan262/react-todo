@@ -1,4 +1,4 @@
-import { Container, FormLabel } from '@mui/material';
+import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GLobalContext';
@@ -11,8 +11,8 @@ const SignUp = () => {
 
     const signUp = (e) => {
         e.preventDefault();
-        setRegister(signUpInput)
-        setSignUpInput({email:"",password:""})  
+        setRegister([...register,signUpInput])
+
     }
 
     const signUpHandle = (e) => {
@@ -29,14 +29,14 @@ const SignUp = () => {
                     <form onSubmit={signUp}>
                         <h2 className="center">Register Form</h2>
                         <div className="input_form">
-                            <FormLabel>Email:{register.email}</FormLabel>
+                        
                             <input type="email" placeholder='Enter your Email....'
                                 name="email"
                                 value={signUpInput.name} onChange={signUpHandle}
                             />
                         </div>
                         <div className="input_form">
-                            <FormLabel>Password:{register.password}</FormLabel>
+                         
                             <input type="password" placeholder='Enter your Password.....'
                                 name="password"
                                 value={signUpInput.name} onChange={signUpHandle}

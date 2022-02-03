@@ -43,7 +43,6 @@ const Todo = () => {
     // edit Todo by find method
 
     const editTodo = (index) => {
-        toast.warning(`todo id: ${index}`)
         setIndex(index)
         console.log(todo);
         setInputValue(todo[index])

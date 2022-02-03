@@ -1,18 +1,20 @@
 import { Container } from '@mui/material';
-import React, { useState, useContext } from 'react';
-import GlobalContext from '../context/GLobalContext'
+import React, { useContext, useState } from 'react';
+import {GlobalContext} from '../context/GLobalContext';
+
 
 const SignIn = () => {
 
     const {register} = useContext(GlobalContext)
-    const [formInput, setFormInput] = useState("");
-    console.log("register data signIn",register)
 
+    const [formInput, setFormInput] = useState({email:"",password:""});
+    console.log(register);
     const signIn = (e) => {
         e.preventDefault();
+        
     }
 
-    const signIpHandle=(e)=>{
+    const signInHandle=(e)=>{
 
         const {name, value}=e.target;
         setFormInput({...formInput, [name]:value})
@@ -26,15 +28,14 @@ const SignIn = () => {
                         <h2 className="center">Sign In Form</h2>
                         <div className="input_form">
                             <input type="text" placeholder='Enter your Email....'
-                            type="email"
                             name="email"
-                                value={formInput.name} onChange={signIpHandle}
+                                value={formInput.name} onChange={signInHandle}
                             />
                         </div>
                         <div className="input_form">
-                            <input type="text" placeholder='Enter your Password.....'
-                            name="password" type="password"
-                                value={formInput.name} onChange={signIpHandle}
+                            <input type="password" placeholder='Enter your Password.....'
+                            name="password"
+                                value={formInput.name} onChange={signInHandle}
                             />
                         </div>
                         <div className="btn-1">

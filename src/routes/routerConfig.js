@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import GlobalContextProvider from '../context/GLobalContext';
 import Todo from '../components/todo';
 import Practise from '../modals/Practise'
 import Home from '../auth/Home';
 import SignIn from '../auth/SignIn';
 import SignUp from '../auth/SignUp';
 import MenuBar from '../auth/MenuBar';
-import GlobalContextProvider from '../context/GLobalContext';
 import Counter from '../context/Counter';
 import CompoA from '../context/CompoA'
 
