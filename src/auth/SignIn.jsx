@@ -7,13 +7,17 @@ import {GlobalContext} from '../context/GLobalContext';
 
 const SignIn = () => {
 
-    const navigate=useNavigate();
-    const {register } = useContext(GlobalContext)
 
-    const [formInput, setFormInput] = useState({email:"",password:""});
+    const navigate=useNavigate();
+    const {register,initialValue } = useContext(GlobalContext)
+
+    const [formInput, setFormInput] = useState(initialValue);
     // console.log(register);
     const signIn = (e) => {
         e.preventDefault();
+
+    
+
         let Data=register.find((data)=>{
             if(data.email===formInput.email && data.password===formInput.password){
                 
@@ -21,8 +25,7 @@ const SignIn = () => {
                 navigate("/")
                 return data;
             }else{
-                console.log("invalid Input")
-                toast.error("Invalid Input")
+                toast.error("Input does not match")
             }
         })
         setFormInput([...register,Data]); 
@@ -57,6 +60,10 @@ const SignIn = () => {
                         </div>
                         <div className="btn-1">
                         <button type='submit' className='add_btn'>Sign In</button>
+                        </div>
+                        <div className="center">
+                        <span className='text'>If you'r new user please Sign up now </span>
+                        <button className='btn info' onClick={()=>{navigate("/signup")}}>Sign Up</button>
                         </div>
                     </form>
                 </div>

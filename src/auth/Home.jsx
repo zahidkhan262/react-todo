@@ -1,7 +1,17 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
+import { useAuth } from '../context/GLobalContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
+  const auth=useAuth()
+  const navigate=useNavigate()
+
+  const handleLogout=()=>{
+    auth.logout()
+    navigate("/signup")
+  }
   return (
     <>
       <Container style={{margin:'20px auto', width: 300,}}>
@@ -18,7 +28,8 @@ const Home = () => {
             },
           }}
         >
-          <h1 className='center'>This is home page</h1>
+          <h1 className='center'>Welcome {auth.user} home page</h1>
+          <button onClick={handleLogout}>Logout</button>
         </Box>
       </Container>
     </>

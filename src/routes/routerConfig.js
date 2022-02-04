@@ -7,16 +7,16 @@ import SignIn from '../auth/SignIn';
 import SignUp from '../auth/SignUp';
 import MenuBar from '../auth/MenuBar';
 import Counter from '../context/Counter';
-import CompoA from '../context/CompoA'
 import NotFound from '../NotFound';
+import RequireAuth from '../auth/RequireAuth';
 
 const RouterConfig = () => {
-    return (   <>
-  <GlobalContextProvider>
+  return (<>
+    <GlobalContextProvider>
       <BrowserRouter>
-      <MenuBar/>
+        <MenuBar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<RequireAuth><Home /></RequireAuth> } />
           <Route path="/modal" element={<Practise />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/counter" element={<Counter />} />
@@ -24,12 +24,9 @@ const RouterConfig = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-
       </BrowserRouter>
-  </GlobalContextProvider>
-
-
-    </> );
+    </GlobalContextProvider>
+  </>);
 }
- 
+
 export default RouterConfig;

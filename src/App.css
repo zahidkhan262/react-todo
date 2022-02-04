@@ -25,3 +25,9 @@ a:hover{color: #3affff!important;}
     margin: 10px;
     padding: 10px;
 }
+.text{
+    text-align: center;
+    font-size: 13px;
+    color: crimson;
+    font-weight: 600;
+}
