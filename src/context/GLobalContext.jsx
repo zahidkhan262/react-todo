@@ -1,23 +1,23 @@
-import {useState, createContext} from 'react'
+import { useState, createContext } from 'react'
 
-export const GlobalContext= createContext();
+export const GlobalContext = createContext();
 
-function GlobalContextProvider(props){
+function GlobalContextProvider(props) {
 
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
 
 
-    const increase=()=>{
-        setCount(count +1)
+    const increase = () => {
+        setCount(count + 1)
     }
-    const decrease=()=>{
-        setCount(count -1)
+    const decrease = () => {
+        setCount(count - 1)
     }
 
-    const value={count, increase, decrease, register, setRegister}
+    const value = { count, increase, decrease, register, setRegister }
 
-    return(
+    return (
         <GlobalContext.Provider value={value}>
             {props.children}
         </GlobalContext.Provider>
