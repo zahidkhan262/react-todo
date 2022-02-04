@@ -8,7 +8,7 @@ import {GlobalContext} from '../context/GLobalContext';
 const SignIn = () => {
 
     const navigate=useNavigate();
-    const {register} = useContext(GlobalContext)
+    const {register } = useContext(GlobalContext)
 
     const [formInput, setFormInput] = useState({email:"",password:""});
     // console.log(register);

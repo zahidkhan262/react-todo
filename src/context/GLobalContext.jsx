@@ -9,6 +9,15 @@ function GlobalContextProvider(props){
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
 
+    const [user, setUser] = useState(null);
+
+    const login =(user)=>{
+        setUser(user)
+    }
+    const logout =()=>{
+        setUser(null)
+    }
+
     const increase=()=>{
         setCount(count +1)
     }
