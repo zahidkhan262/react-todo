@@ -1,33 +1,26 @@
 import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
-// import { toast } from 'react-toastify';
-import { GlobalContext ,useAuth} from '../context/GLobalContext';
+import { toast } from 'react-toastify';
+import { GlobalContext } from '../context/GLobalContext';
 const SignUp = () => {
 
-    const { register, setRegister,user ,initialValue} = useContext(GlobalContext);
+    const { register, setRegister ,initialValue} = useContext(GlobalContext);
 
     const [signUpInput, setSignUpInput] = useState(initialValue);
-   const auth= useAuth()
-   const navigate=useNavigate()
+
 
     const signUp = (e) => {
         e.preventDefault();
-        
-
-        auth.login(user)
-        navigate("/")
-
-        setRegister([...register,signUpInput])
-
-        setSignUpInput(initialValue)
+            setRegister([...register,signUpInput])
+            setSignUpInput(initialValue)
     }
     
     const signUpHandle = (e) => {
         const { name, value } = e.target;
         setSignUpInput({ ...signUpInput, [name]: value })
+       
     }
 
 

@@ -16,7 +16,7 @@ const RouterConfig = () => {
       <BrowserRouter>
         <MenuBar />
         <Routes>
-          <Route exact path="/" element={<RequireAuth><Home /></RequireAuth> } />
+          <Route exact path="/" element={<Home /> } />
           <Route path="/modal" element={<Practise />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/counter" element={<Counter />} />

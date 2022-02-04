@@ -15,9 +15,6 @@ const SignIn = () => {
     // console.log(register);
     const signIn = (e) => {
         e.preventDefault();
-
-    
-
         let Data=register.find((data)=>{
             if(data.email===formInput.email && data.password===formInput.password){
                 
