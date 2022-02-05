@@ -6,21 +6,25 @@ import { toast } from 'react-toastify';
 import { GlobalContext } from '../context/GLobalContext';
 const SignUp = () => {
 
-    const { register, setRegister ,initialValue} = useContext(GlobalContext);
+    const { register, setRegister, initialValue } = useContext(GlobalContext);
 
     const [signUpInput, setSignUpInput] = useState(initialValue);
 
 
     const signUp = (e) => {
         e.preventDefault();
-            setRegister([...register,signUpInput])
+        if () {
+            toast.error("fill the field")
+        } else {
+            setRegister([...register, signUpInput])
             setSignUpInput(initialValue)
+        }
     }
-    
+
     const signUpHandle = (e) => {
         const { name, value } = e.target;
         setSignUpInput({ ...signUpInput, [name]: value })
-       
+
     }
 
 
@@ -32,14 +36,14 @@ const SignUp = () => {
                     <form onSubmit={signUp}>
                         <h2 className="center">Register Form</h2>
                         <div className="input_form">
-                        
+                            {register.email}
                             <input type="text" placeholder='Enter your Email....'
                                 name="email"
                                 value={signUpInput.name} onChange={signUpHandle}
                             />
                         </div>
                         <div className="input_form">
-                         
+                            {register.password}
                             <input type="password" placeholder='Enter your Password.....'
                                 name="password"
                                 value={signUpInput.name} onChange={signUpHandle}

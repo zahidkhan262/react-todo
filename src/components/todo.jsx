@@ -23,7 +23,7 @@ const Todo = () => {
         } 
         else {
             let temp = todo;
-            temp.push( inputValue)
+            temp.push(inputValue)
             setTodo(temp)
             toast.success("Task Added")
             setInputValue("")

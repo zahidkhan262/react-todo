@@ -8,25 +8,30 @@ import SignUp from '../auth/SignUp';
 import MenuBar from '../auth/MenuBar';
 import Counter from '../context/Counter';
 import NotFound from '../NotFound';
-import RequireAuth from '../auth/RequireAuth';
+import ProtectedRouter from '../auth/ProtectedRouter';
+
 
 const RouterConfig = () => {
-  return (<>
-    <GlobalContextProvider>
-      <BrowserRouter>
-        <MenuBar />
-        <Routes>
-          <Route exact path="/" element={<Home /> } />
-          <Route path="/modal" element={<Practise />} />
-          <Route path="/todo" element={<Todo />} />
-          <Route path="/counter" element={<Counter />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </GlobalContextProvider>
-  </>);
+  return (
+    <>
+      <GlobalContextProvider>
+        <BrowserRouter>
+          <MenuBar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/modal" element={<ProtectedRouter />} >
+              <Route path="/modal" element={<Practise />} />
+
+            </Route>
+            <Route path="/todo" element={<Todo />} />
+            <Route path="/counter" element={<Counter />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalContextProvider>
+    </>);
 }
 
 export default RouterConfig;

@@ -9,16 +9,18 @@ export default  function GlobalContextProvider(props){
 
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
-
     const initialValue={ email: "", password: "" }
 
 
-    const login =(user)=>{
-        setUser(user)
+    const handleLogin=()=>{
+        setUser(true)
     }
-    const logout =()=>{
-        setUser(null)
+    
+
+    const handleLogout=()=>{
+        setUser(false)
     }
+    
 
     const increase=()=>{
         setCount(count +1)
@@ -27,7 +29,7 @@ export default  function GlobalContextProvider(props){
         setCount(count -1)
     }
 
-    const value={count, increase, decrease, register, setRegister,user,login, logout,initialValue}
+    const value={count, increase, decrease, register, setRegister,user, setUser,handleLogin,handleLogout,initialValue}
 
     return(
         <GlobalContext.Provider value={value}>
