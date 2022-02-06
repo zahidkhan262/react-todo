@@ -1,7 +1,10 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
 
+
+
 const Home = () => {
+
   return (
     <>
       <Container style={{margin:'20px auto', width: 300,}}>
@@ -18,7 +21,7 @@ const Home = () => {
             },
           }}
         >
-          <h1 className='center'>This is home page</h1>
+          <h1 className='center'>Welcome  home page</h1>
         </Box>
       </Container>
     </>

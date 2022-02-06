@@ -15,6 +15,7 @@ const MenuBar = () => {
                             <NavLink  to="/">Home</NavLink>
                             <NavLink to="/modal">Modal</NavLink>
                             <NavLink to="/todo">Todo</NavLink>
+                            <NavLink to="/counter">Counter App</NavLink>
                         </Nav>
                         <Nav>
                             <NavLink to="/signin">SignIn</NavLink>

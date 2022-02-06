@@ -1,11 +1,13 @@
 import { useState, createContext } from 'react'
-
 export const GlobalContext = createContext();
 
 function GlobalContextProvider(props) {
 
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
+
+    const initialValue = { email: "", password: "" }
+
 
 
     const increase = () => {
@@ -15,7 +17,8 @@ function GlobalContextProvider(props) {
         setCount(count - 1)
     }
 
-    const value = { count, increase, decrease, register, setRegister }
+    const value = { count, increase, decrease, register, setRegister, initialValue }
+
 
     return (
         <GlobalContext.Provider value={value}>
@@ -24,3 +27,4 @@ function GlobalContextProvider(props) {
     )
 }
 export default GlobalContextProvider;
+

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CustomModal from './common/customModal';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './todo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -38,12 +38,11 @@ const Todo = () => {
         setTodo(newTodo)
 
         console.log(newTodo)
-    }
+}
 
     // edit Todo by find method
 
     const editTodo = (index) => {
-        toast.warning(`todo id: ${index}`)
         setIndex(index)
         console.log(todo);
         setInputValue(todo[index])
@@ -97,17 +96,7 @@ const Todo = () => {
                 <CustomModal {...props}  />
             </div>
 
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+        
         </>
     );
 }
