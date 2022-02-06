@@ -3,6 +3,7 @@ export const GlobalContext = createContext();
 
 function GlobalContextProvider(props) {
 
+    const [user, setUser] = useState(false);
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
 
@@ -17,7 +18,7 @@ function GlobalContextProvider(props) {
         setCount(count - 1)
     }
 
-    const value = { count, increase, decrease, register, setRegister, initialValue }
+    const value = { count, increase, decrease, register, setRegister, user, setUser, initialValue }
 
 
     return (
