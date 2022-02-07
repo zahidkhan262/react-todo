@@ -6,22 +6,26 @@ import { GlobalContext } from '../context/GLobalContext';
 
 
 const SignIn = () => {
-
-
     const navigate = useNavigate();
     const { register, initialValue, setUser } = useContext(GlobalContext)
-
     const [formInput, setFormInput] = useState(initialValue);
-    // console.log(register);
+    
     const signIn = (e) => {
         e.preventDefault();
-        if(formInput.email && formInput.password){
 
-            setUser(true);
-            navigate("/")
-            console.log(register)
-        }else{
-            toast.error("fill the field")
+        if (formInput.email && formInput.password) {
+            register.filter((ele) => {
+                if (ele.email === formInput.email && ele.password === formInput.password) {
+                    setUser(true);
+                    navigate("/")
+                    console.log(register)
+                } else {
+                    toast.error("Data do not match")
+                }
+            })
+        } else {
+            toast.error("Input field required")
+
         }
     }
 

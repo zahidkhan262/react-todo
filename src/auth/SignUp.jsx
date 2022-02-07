@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GlobalContext } from '../context/GLobalContext';
 const SignUp = () => {
@@ -11,12 +11,15 @@ const SignUp = () => {
 
     const [signUpInput, setSignUpInput] = useState(initialValue);
 
+    const navigate = useNavigate()
+
 
     const signUp = (e) => {
         e.preventDefault();
         if (signUpInput.email && signUpInput.password) {
             setRegister([...register, signUpInput])
             setSignUpInput(initialValue)
+            navigate("/signin")
         } else {
             toast.error("fill the field")
         }

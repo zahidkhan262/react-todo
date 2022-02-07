@@ -1,42 +1,31 @@
-import {useState, createContext,useContext} from 'react'
+import { useState, createContext } from 'react'
+export const GlobalContext = createContext();
 
-export const GlobalContext= createContext();
+function GlobalContextProvider(props) {
 
-export default  function GlobalContextProvider(props){
-
-    const [user, setUser] = useState(null);
-    
-
+    const [user, setUser] = useState(false);
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
-    const initialValue={ email: "", password: "" }
+
+    const initialValue = { email: "", password: "" }
 
 
-    const handleLogin=()=>{
-        setUser(true)
+
+    const increase = () => {
+        setCount(count + 1)
     }
-    
-
-    const handleLogout=()=>{
-        setUser(false)
-    }
-    
-
-    const increase=()=>{
-        setCount(count +1)
-    }
-    const decrease=()=>{
-        setCount(count -1)
+    const decrease = () => {
+        setCount(count - 1)
     }
 
-    const value={count, increase, decrease, register, setRegister,user, setUser,handleLogin,handleLogout,initialValue}
+    const value = { count, increase, decrease, register, setRegister, user, setUser, initialValue }
 
-    return(
+
+    return (
         <GlobalContext.Provider value={value}>
             {props.children}
         </GlobalContext.Provider>
     )
 }
-export const useAuth=()=>{
-    return useContext(GlobalContext)
-}
+export default GlobalContextProvider;
+
