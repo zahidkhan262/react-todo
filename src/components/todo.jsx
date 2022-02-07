@@ -75,6 +75,7 @@ const Todo = () => {
                             <button type='submit' className='add_btn'><FontAwesomeIcon icon={faPlus} /> Add</button>
                         </div>
                     </form>
+                  
                     <ul className="todo_list">
                         {
                             todo.length ? todo.map((item, index) => {

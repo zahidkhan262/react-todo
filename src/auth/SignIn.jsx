@@ -6,6 +6,15 @@ import { GlobalContext } from '../context/GLobalContext';
 
 
 const SignIn = () => {
+
+    // let arr=[1,2,3,4,5]
+
+    // let userInput=3;
+
+    // let newArr=arr.splice()
+
+
+
     const navigate = useNavigate();
     const { register, initialValue, setUser } = useContext(GlobalContext)
     const [formInput, setFormInput] = useState(initialValue);
@@ -19,6 +28,7 @@ const SignIn = () => {
                     setUser(true);
                     navigate("/")
                     console.log(register)
+                    toast.success("login successfully")
                 } else {
                     toast.error("Data do not match")
                 }

@@ -5,28 +5,33 @@ import { GlobalContext } from '../context/GLobalContext';
 
 const MenuBar = () => {
 
-    const { user } = useContext(GlobalContext)
+    const { user,setUser } = useContext(GlobalContext)
 
 
+    const logout=()=>{
+        setUser(false)
+    }
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand to="/">React-App</Navbar.Brand>
+                    <NavLink to="/">React-App</NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        {user &&
+                        {user ?
                             <Nav className="me-auto">
                                 <NavLink to="/">Home</NavLink>
                                 <NavLink to="/modal">Modal</NavLink>
-                                <NavLink to="/todo">Todo</NavLink>
                                 <NavLink to="/counter">Counter App</NavLink>
+                                <NavLink to="/todo">Todo</NavLink>
+                                <NavLink to="/table">Table</NavLink>
+                                <NavLink to=""><span onClick={logout} style={{color:'crimson'}}>Logout</span></NavLink>
                             </Nav>
-                        }
-                        <Nav>
+                        :<Nav  className='me-right'>
                             <NavLink to="/signin">SignIn</NavLink>
                             <NavLink to="/signup">SignUp</NavLink>
                         </Nav>
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
