@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { GlobalContext } from '../context/GLobalContext';
 const SignUp = () => {
 
+
     const { register, setRegister, initialValue } = useContext(GlobalContext);
 
     const [signUpInput, setSignUpInput] = useState(initialValue);
@@ -13,11 +14,11 @@ const SignUp = () => {
 
     const signUp = (e) => {
         e.preventDefault();
-        if () {
-            toast.error("fill the field")
-        } else {
+        if (signUpInput.email && signUpInput.password) {
             setRegister([...register, signUpInput])
             setSignUpInput(initialValue)
+        } else {
+            toast.error("fill the field")
         }
     }
 

@@ -15,9 +15,14 @@ const SignIn = () => {
     // console.log(register);
     const signIn = (e) => {
         e.preventDefault();
-        setUser(true);
-        navigate("/")
-        console.log(register)
+        if(formInput.email && formInput.password){
+
+            setUser(true);
+            navigate("/")
+            console.log(register)
+        }else{
+            toast.error("fill the field")
+        }
     }
 
     const signInHandle = (e) => {
