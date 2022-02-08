@@ -67,7 +67,7 @@ const Todo = () => {
     const handleUpdateTodo = () => {
         let temp = todo;
         temp[index] = inputValue;
-        console.log(temp);
+        console.log("temp",temp);
         setTodo(temp);
         setShowModal(false);
         setInputValue("")

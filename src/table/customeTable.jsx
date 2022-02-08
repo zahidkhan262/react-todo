@@ -31,8 +31,8 @@ const CustomeTable = ({ rows, columns }) => {
     return (
         <>
             <TableContainer>
-                <Table sx={{ minWidth: 450 }} aria-label="simple table">
-                    <TableHead className={table.root}>
+                <Table sx={{ minWidth: 450 }} aria-label="simple table" className={table.root}>
+                    <TableHead >
                         <TableRow>
                             {columns.map((col, index) => {
                                 return (
