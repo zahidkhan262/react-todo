@@ -1,0 +1,17 @@
+          {/* <ul className="todo_list">
+                        {
+                            todo.length ? todo.map((item, index) => {
+                                return (
+
+                                    <li className='d-flex-1' key={index}>
+                                        <p> {item} </p>
+                                        <span>
+                                            <button className='edit_btn' onClick={() => editTodo(index)}>Edit</button>
+                                            <button className='delete_btn' onClick={() => { deleteTodo(index) }}>Delete</button>
+                                        </span>
+                                    </li>
+                                )
+                            })
+                                : <h3 className='center'>There is no <FontAwesomeIcon icon={faTimes} style={{ color: "crimson" }} /> Data..</h3>
+                        }
+                    </ul> */}

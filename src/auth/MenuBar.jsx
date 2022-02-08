@@ -24,7 +24,6 @@ const MenuBar = () => {
                                 <NavLink to="/modal">Modal</NavLink>
                                 <NavLink to="/counter">Counter App</NavLink>
                                 <NavLink to="/todo">Todo</NavLink>
-                                <NavLink to="/table">Table</NavLink>
                                 <NavLink to=""><span onClick={logout} style={{color:'crimson'}}>Logout</span></NavLink>
                             </Nav>
                         :<Nav  className='me-right'>

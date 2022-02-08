@@ -13,11 +13,11 @@ const SignIn = () => {
 
     // let newArr=arr.splice()
 
-
-
+    
     const navigate = useNavigate();
     const { register, initialValue, setUser } = useContext(GlobalContext)
     const [formInput, setFormInput] = useState(initialValue);
+    console.log(register)
     
     const signIn = (e) => {
         e.preventDefault();

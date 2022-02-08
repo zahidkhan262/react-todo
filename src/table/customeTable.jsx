@@ -1,61 +1,67 @@
-import { TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
-import MyTable from './MyTable';
+import { makeStyles } from '@mui/styles';
+const useStyles = makeStyles({
+    root: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        border: 0,
+        borderRadius: 3,
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+    },
+});
+
+const CustomeTable = ({ rows, columns }) => {
+
+    const table = useStyles();
+
+    const displayCell = (row, col,index) => {
+        
+        if (col.content)
+            return col.content(row)
+        else {
+            return   <TableCell key={index}>{row}</TableCell>
+        }
+    }
 
 
-const customeTable = () => {
 
-   
-
-    const columns = [
-        { id: "E_ID", name: "E_NAME", age: "E_AGE", }
-    ]
-    const rows = [
-        { e_id: 1, e_name: "Zahid", e_age: 22 },
-        { e_id: 2, e_name: "Tarun", e_age: 27 },
-        { e_id: 3, e_name: "Kapil", e_age: 27 },
-        { e_id: 4, e_name: "Bhati", e_age: 24 },
-        { e_id: 5, e_name: "Saurabh", e_age: 23 },
-    ]
-    const Col = (
-        <>
-            <TableHead>
-                {columns.map((col) => {
-                    return (
-                        <>
-                            <TableRow key={col.id} width='100' >
-                                <TableCell> {col.id}</TableCell>
-                                <TableCell>{col.name}</TableCell>
-                                <TableCell>{col.age}</TableCell>
-                            </TableRow>
-                        </>
-                    )
-                })}
-            </TableHead>
-        </>
-    )
-    const Row = (
-        <>
-            <TableBody>
-                {rows.map((row) => {
-                    return (
-                        <>
-                            <TableRow key={row.id} >
-                                <TableCell>{row.e_id}</TableCell>
-                                <TableCell>{row.e_name}</TableCell>
-                                <TableCell>{row.e_age}</TableCell>
-                            </TableRow>
-                        </>
-                    )
-                })}
-            </TableBody>
-        </>
-    )
     return (
         <>
-                    <MyTable Row={Row} Col={Col} />
+            <TableContainer>
+                <Table sx={{ minWidth: 450 }} aria-label="simple table">
+                    <TableHead className={table.root}>
+                        <TableRow>
+                            {columns.map((col, index) => {
+                                return (
+                                    <TableCell key={index}>
+                                        {col.label}
+                                    </TableCell>
+                                )
+                            }
+                            )}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row, index) => {
+                            return (
+                                <>
+                                <TableRow >
+                                            {
+                                                columns.map((col, index) => {
+                                                    return displayCell(row, col, index)
+                                                })
+                                            }
+                                </TableRow>
+                                </>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </>
     )
-};
-
-export default customeTable;
+}
+export default CustomeTable;

@@ -9,7 +9,6 @@ import MenuBar from '../auth/MenuBar';
 import Counter from '../context/Counter';
 import NotFound from '../NotFound';
 import ProtectedRouter from '../auth/ProtectedRouter'
-import CustomeTable from '../table/customeTable';
 const RouterConfig = () => {
   return (
     <>
@@ -22,7 +21,6 @@ const RouterConfig = () => {
               <Route path="/modal" element={<Practise />} />
               <Route path="/counter" element={<Counter />} />
               <Route path="/todo" element={<Todo />} />
-              <Route path="/table" element={<CustomeTable />} />
             </Route>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
