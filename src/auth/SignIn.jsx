@@ -1,23 +1,22 @@
 import { Container } from '@mui/material';
 import { toast } from 'react-toastify';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../context/GLobalContext';
 
 
 const SignIn = () => {
 
-    // let arr=[1,2,3,4,5]
-
-    // let userInput=3;
-
-    // let newArr=arr.splice()
 
     
     const navigate = useNavigate();
     const { register, initialValue, setUser } = useContext(GlobalContext)
     const [formInput, setFormInput] = useState(initialValue);
     console.log(register)
+
+    useEffect(() => {
+        localStorage.setItem("task", JSON.stringify(register));
+    }, [register])
     
     const signIn = (e) => {
         e.preventDefault();

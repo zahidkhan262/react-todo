@@ -17,6 +17,8 @@ const Todo = () => {
     const [animation, setAnimation] = useState(false)
 
 
+  
+
 
     const columns = [
                 {label:"todo"},
@@ -39,6 +41,7 @@ const Todo = () => {
         else {
             let temp = todo;
             temp.push(inputValue)
+
             setTodo(temp)
             toast.success("Task Added")
             setInputValue("")
@@ -59,7 +62,7 @@ const Todo = () => {
 
     const editTodo = (index) => {
         setIndex(index)
-        console.log(index);
+        console.log("index",index);
         setInputValue(todo[index])
         setShowModal(true)
         setAnimation(true)
