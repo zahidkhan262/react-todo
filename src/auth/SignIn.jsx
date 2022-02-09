@@ -7,27 +7,21 @@ import { GlobalContext } from '../context/GLobalContext';
 
 const SignIn = () => {
 
-    const localData=()=>{
-        const data=localStorage.getItem("task")
-        return data ? JSON.parse(data):[]
-    }
+
 
     const { register, setUser } = useContext(GlobalContext)
     const navigate = useNavigate();  
 
-    const [formInput, setFormInput] = useState(localData())
+    const [formInput, setFormInput] = useState(()=>{
+        const data=localStorage.getItem("task")
+        return data ? JSON.parse(data):[]
+    })
 
 
 
     useEffect(() => {
         localStorage.setItem("task", JSON.stringify(formInput));
     }, [formInput])
-
-
-
-
- 
-    
     
     const signIn = (e) => {
         e.preventDefault();

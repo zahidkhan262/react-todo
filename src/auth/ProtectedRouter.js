@@ -7,7 +7,7 @@ const ProtectedRouter = ({ component: Component, ...rest }) => {
     console.log(user)
   return (
  
-     !user ?<Navigate to="/signin" /> : ''
+     user ? <Outlet /> : <Navigate to="/signin" />
   
     );
 };
