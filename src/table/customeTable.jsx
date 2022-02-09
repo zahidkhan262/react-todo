@@ -47,15 +47,13 @@ const CustomeTable = ({ rows, columns }) => {
                     <TableBody>
                         {rows.map((row, index) => {
                             return (
-                                <>
-                                <TableRow >
+                                <TableRow key={index} >
                                             {
                                                 columns.map((col, index) => {
                                                     return displayCell(row, col, index)
                                                 })
                                             }
                                 </TableRow>
-                                </>
                             )
                         })}
                     </TableBody>

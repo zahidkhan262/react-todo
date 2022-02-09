@@ -7,16 +7,27 @@ import { GlobalContext } from '../context/GLobalContext';
 
 const SignIn = () => {
 
+    const localData=()=>{
+        const data=localStorage.getItem("task")
+        return data ? JSON.parse(data):[]
+    }
 
-    
-    const navigate = useNavigate();
-    const { register, initialValue, setUser } = useContext(GlobalContext)
-    const [formInput, setFormInput] = useState(initialValue);
-    console.log(register)
+    const { register, setUser } = useContext(GlobalContext)
+    const navigate = useNavigate();  
+
+    const [formInput, setFormInput] = useState(localData())
+
+
 
     useEffect(() => {
-        localStorage.setItem("task", JSON.stringify(register));
-    }, [register])
+        localStorage.setItem("task", JSON.stringify(formInput));
+    }, [formInput])
+
+
+
+
+ 
+    
     
     const signIn = (e) => {
         e.preventDefault();
@@ -26,6 +37,7 @@ const SignIn = () => {
                 if (ele.email === formInput.email && ele.password === formInput.password) {
                     setUser(true);
                     navigate("/")
+                   
                     console.log(register)
                     toast.success("login successfully")
                 } else {

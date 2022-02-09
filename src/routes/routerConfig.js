@@ -9,6 +9,7 @@ import MenuBar from '../auth/MenuBar';
 import Counter from '../context/Counter';
 import NotFound from '../NotFound';
 import ProtectedRouter from '../auth/ProtectedRouter'
+import Data from '../api/Data';
 const RouterConfig = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const RouterConfig = () => {
             <Route path="/" element={<ProtectedRouter />} >
               <Route exact path="/" element={<Home />} />
               <Route path="/modal" element={<Practise />} />
+              <Route path="/api" element={<Data />} />
               <Route path="/counter" element={<Counter />} />
               <Route path="/todo" element={<Todo />} />
             </Route>

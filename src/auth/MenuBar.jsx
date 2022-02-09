@@ -22,6 +22,7 @@ const MenuBar = () => {
                             <Nav className="me-auto">
                                 <NavLink to="/">Home</NavLink>
                                 <NavLink to="/modal">Modal</NavLink>
+                                <NavLink to="/api">Table</NavLink>
                                 <NavLink to="/counter">Counter App</NavLink>
                                 <NavLink to="/todo">Todo</NavLink>
                                 <NavLink to=""><span onClick={logout} style={{color:'crimson'}}>Logout</span></NavLink>
