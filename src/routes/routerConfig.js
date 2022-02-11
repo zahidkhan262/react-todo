@@ -10,6 +10,7 @@ import Counter from '../context/Counter';
 import NotFound from '../NotFound';
 import ProtectedRouter from '../auth/ProtectedRouter'
 import Data from '../api/Data';
+
 const RouterConfig = () => {
   return (
     <>

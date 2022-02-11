@@ -1,0 +1,17 @@
+*{
+
+
+position: absolute;
+top: 50%;
+left: 50%;
+width:80px;
+height:420px;
+
+box-shadow: inset -10px 0 40px rgba(0,0,0,0.1),
+inset 10px 0 40px rgba(0,0,0,0.1),
+inset -10px 0 40px rgba(255,255,255,0.25),
+inset 10px 0 40px rgba(255,255,255,0.25);
+transform: translate(-50%,-50%) rotate(45deg);
+background: #222 radial-gradient(#03a9f4 6px, #000 6px, #009f10 10px,transparent 10px);
+background-size: 20px 20px;
+}
