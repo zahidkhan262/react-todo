@@ -4,8 +4,9 @@ export const  increment=()=>{
         type:INCREMENT
     }
 }
-export const  decrement=()=>{
+export const  decrement=(num)=>{
     return{
-        type:DECREMENT
+        type:DECREMENT,
+        payload:num
     }
 }

@@ -1,21 +1,14 @@
 import { INCREMENT,DECREMENT } from "./CounterType"
-const initialState={
-    count:0
-}
+const initialState=0;
 
 const CounterReducer=(state=initialState,action)=>{
 
     switch(action.type){
         case INCREMENT:
-            return {
-                ...state,
-                count:state.count<20? state.count +1 :state.count
-            }
+            return state + 1;
         case DECREMENT:
-            return {
-                ...state,
-                count:state.count>2 ? state.count -1 :state.count
-            }
+            return state - action.payload;
+
             default : return state
     }
 }

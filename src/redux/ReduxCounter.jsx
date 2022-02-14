@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { increment,decrement } from '.';
+import { increment,decrement } from './CounterAction';
+// import { connect } from 'react-redux';
+
 
 
 const CounterContainer = styled.div`
@@ -56,18 +59,20 @@ padding:10px;
 
 
 
-const ReduxCounter = (props) => {
+const ReduxCounter = () => {
 
+    const count=useSelector((state)=> state.CounterReducer);
+   const dispatch = useDispatch()
 
     return (
         <>
             <CounterContainer>
                 <CounterBox>
                     <CounterButton>
-                        <Button onClick={props.increment} >Plus</Button>
-                        <Button onClick={props.decrement} >Minus</Button>
+                        <Button onClick={()=>dispatch(increment())} >Plus</Button>
+                        <Button onClick={()=>dispatch(decrement(2))} >Minus</Button>
                     </CounterButton>
-                    <CounterLabel>Count:{props.count}</CounterLabel>
+                    <CounterLabel>Count:{count}</CounterLabel>
                 </CounterBox>
             </CounterContainer>
 
@@ -75,17 +80,18 @@ const ReduxCounter = (props) => {
     )
 }
 
-const mapStateToProps=state=>{
-    return{
-        count:state.count
-    }
-}
+// const mapStateToProps=state=>{
+//     return{
+//         count:state.count
+//     }
+// }
 
-const mapDispatchProps=dispatch=>{
-    return{
-        increment:()=> dispatch(increment()),
-        decrement:()=> dispatch(decrement())
-    }  
-}
+// const mapDispatchProps=dispatch=>{
+//     return{
+//         increment:()=> dispatch(increment()),
+//         decrement:()=> dispatch(decrement())
+//     }  
+// }
 
-export default connect(mapStateToProps,mapDispatchProps)(ReduxCounter)
+export default ReduxCounter
+//  connect(mapStateToProps,mapDispatchProps)(ReduxCounter)

@@ -23,9 +23,9 @@ const Todo = () => {
     const columns = [
                 {label:"todo"},
                 {label:"Action",
-                content:(todo) => {return(
+                content:(index) => {return(
                         <TableCell>
-                            <button  className='edit_btn' onClick={() => editTodo(todo)}>Edit</button>
+                            <button  className='edit_btn' onClick={() => editTodo(index)}>Edit</button>
                             <button className='delete_btn' onClick={() => { deleteTodo(index) }}>Delete</button>
                         </TableCell>
                 )}}
@@ -66,6 +66,7 @@ const Todo = () => {
         setInputValue(todo[index])
         setShowModal(true)
         setAnimation(true)
+
     }
     const handleUpdateTodo = () => {
         let temp = todo;
