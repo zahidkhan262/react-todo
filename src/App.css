@@ -31,3 +31,73 @@ a:hover{color: #3affff!important;}
     color: crimson;
     font-weight: 600;
 }
+.input-field {
+    margin-bottom: 10px;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.form {
+    padding: 20px;
+    max-width: 500px;
+    height: 400px;
+    background: #dffdff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+}
+
+.btn {
+    text-align: center;
+}
+
+.error {
+    font-size: 13px;
+    color: crimson;
+}
+
+.red {
+    border: 1px solid red !important;
+}
+
+.green {
+    border: 1px solid green !important;
+}
+
+/* my card */
+.myCard {
+    position: relative;
+    text-align: center;
+    margin: 10px;
+    height: 190px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.user_profile {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+.user_profile img {
+    width: 130px;
+    border-radius: 50%;
+    border: 4px dashed rgb(249 88 3);
+}
+
+.myProModal {
+
+    max-width: 500px;
+}
+
+.d-flex-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.d-flex-2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

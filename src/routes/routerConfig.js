@@ -10,6 +10,8 @@ import Counter from '../context/Counter';
 import NotFound from '../NotFound';
 import ProtectedRouter from '../auth/ProtectedRouter'
 import Data from '../api/Data';
+import FormValidation from '../FormValidation';
+import ApiData from '../classComponents/ApiData'
 
 const RouterConfig = () => {
   return (
@@ -28,6 +30,9 @@ const RouterConfig = () => {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="*" element={<NotFound />} />
+            <Route path='/form' element={<FormValidation />} />
+            <Route path='/card' element={<ApiData />} />
+
           </Routes>
           
         </BrowserRouter>

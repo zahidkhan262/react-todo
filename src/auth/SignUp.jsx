@@ -8,14 +8,9 @@ import { GlobalContext } from '../context/GLobalContext';
 
 const SignUp = () => {
     const { register, setRegister, initialValue } = useContext(GlobalContext);
-    
-  
-
-
     const [signUpInput, setSignUpInput] = useState(initialValue);
 
     const navigate = useNavigate()
-
 
     const signUp = (e) => {
         e.preventDefault();
@@ -39,7 +34,6 @@ const SignUp = () => {
         <>
             <Container>
                 <div className="sign_form bg-info">
-
                     <form onSubmit={signUp}>
                         <h2 className="center">Register Form</h2>
                         <div className="input_form">

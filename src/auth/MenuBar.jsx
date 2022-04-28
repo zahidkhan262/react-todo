@@ -30,7 +30,8 @@ const MenuBar = () => {
                         :<Nav  className='me-right'>
                             <NavLink to="/signin">SignIn</NavLink>
                             <NavLink to="/signup">SignUp</NavLink>
-                            {/* <NavLink to="/r_counter">Redux Counter</NavLink> */}
+                                <NavLink to="/form">Form</NavLink>
+                                <NavLink to="/card">Card</NavLink>
                         </Nav>
                         }
                     </Navbar.Collapse>

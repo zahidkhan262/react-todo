@@ -95,7 +95,7 @@ const Todo = () => {
                         </div>
                     </form>
                     {
-                    todo.length ?
+                        todo ?
                                     <CustomeTable key={index} rows={todo} columns={columns} />
                                     
                                  
