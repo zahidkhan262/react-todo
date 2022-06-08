@@ -25,11 +25,11 @@ function GlobalContextProvider(props) {
         setCount(count - 1)
     }
 
-    const value = { count, increase, decrease, register, setRegister, user, setUser, initialValue }
+    const values = { count, increase, decrease, register, setRegister, user, setUser, initialValue }
 
 
     return (
-        <GlobalContext.Provider value={value}>
+        <GlobalContext.Provider value={values}>
             {props.children}
         </GlobalContext.Provider>
     )
