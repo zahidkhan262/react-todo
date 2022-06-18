@@ -25,20 +25,12 @@ function useOutsideAlerter(ref) {
 }
 
 function App() {
-
-
-
   return (
     <>
-
       <RouterConfig />
-
       <Provider store={store}>
           <ReduxCounter />
       </Provider>
-
-
-
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -53,5 +45,4 @@ function App() {
     </>
   );
 }
-
 export default App;
