@@ -6,12 +6,12 @@ function GlobalContextProvider(props) {
     const [user, setUser] = useState(false);
     const [count, setCount] = useState(0);
     const [register, setRegister] = useState([]);
-    // ,()=>{
-    //     const data=localStorage.getItem("task")
-    //     return data? JSON.parse(data):[]
-    // }
+   
 
-    const initialValue = { email: "", password: "" }
+    const initialValue = { 
+        email: "", 
+        password: "" 
+    }
 
 
     // useEffect(() => {
