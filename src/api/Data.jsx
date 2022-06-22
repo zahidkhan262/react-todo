@@ -18,6 +18,8 @@ const Data = () => {
     const fetchData=()=>{
         axios.get(API_URL).then((response)=>{
             let res=response.data;
+            let err = response.data.error;
+            console.log(err);
             setApiData(res)
         })
     }
