@@ -44,4 +44,57 @@ const Practise = () => {
         </>
     );
 };
-export default Practise
+export default Practise;
+
+// useCustomInputhook
+// this is custom hook
+import React, { useState } from 'react'
+
+const useInput = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
+    const reset = () => {
+        setValue(initialValue)
+    }
+    const bind = {
+        value: value,
+        onChange: (e) => {
+            setValue(e.target.value)
+        }
+    }
+    return [value, bind, reset]
+}
+
+export default useInput
+
+//this is form
+import { useState } from 'react'
+import useInput from './useInput'
+const MyForm = () => {
+
+    const [firstName, bindFirstName, resetFirstName] = useInput('')
+    const [lastName, bindLastName, resetLastName] = useInput('')
+
+    const submit = () => {
+        if (firstName && lastName) {
+            alert(`${firstName} ${lastName}`)
+        }
+        resetFirstName()
+        resetLastName()
+    }
+    return (
+        <>
+            <div className='my-4'>
+                <span>First Name</span><input type='text'
+                    {...bindFirstName}
+                />
+                <span>Last Name</span><input type='text'
+                    {...bindLastName}
+                />
+
+            </div>
+            <button onClick={submit}>Submit</button>
+        </>
+    )
+}
+
+export default MyForm
