@@ -48,9 +48,21 @@ const Practise = () => {
 export default Practise;
 
 // useCustomInputhook
-// this is custom hook
+
 import React, { useState } from 'react'
 
+const useToggleState = (initialState=false)=>{
+    const [toggle, setToggle] = useState(initialState);
+    
+    const handleToggle= ()=>{
+        setToggle(!toggle)
+    }
+    return [toggle, setToggle, handleToggle];
+    
+}
+export {useToggleState}
+
+// this is custom input hook which is called useInput
 const useInput = (initialValue) => {
     const [value, setValue] = useState(initialValue);
     const reset = () => {
