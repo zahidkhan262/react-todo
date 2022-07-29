@@ -23,9 +23,10 @@ const ProductCard = () => {
     const [productList, setProductList] = useState([]);
     const [windowWidth, setWindowWidth] = useState(initialScreenWidth)
     const [modal, setModal] = useState(false);
-    const [selectedData, setSelectedData] = useState(null)
+    const [selectedData, setSelectedData] = useState(null);
+    const [isComplete, setIsComplete] = useState(false);
 
-    const { data, error, loading, setError } = useAxios({
+    const { data, error, loading } = useAxios({
         method: "GET",
         url: 'todos'
     });
@@ -42,6 +43,7 @@ const ProductCard = () => {
     }, [data, windowWidth, initialScreenWidth]);
     const handleClick = (select) => {
         setSelectedData(select)
+        console.log(select)
         handleModal()
     }
 
@@ -50,12 +52,20 @@ const ProductCard = () => {
         console.log("first")
     }
 
+    const onHandleComplete = () => {
+        setIsComplete(!isComplete)
+        console.log(isComplete)
+
+    }
+
+
     const renderData = productList.map((items) => (
         <Col lg={3} md={4} sm={6} key={items.id}>
             <Card className='mb-3 p-1' style={{ backgroundColor: '#e6e6e666', boxShadow: '5px 5px 0px 2px #e0e0e018' }}>
                 <Card.Img src={iphone} alt="image" />
                 <Card.Body className=''>
                     <div className="p-2">
+                        <input type="checkbox" defaultChecked={items.completed === true} onChange={onHandleComplete} />
                         <h3 className='text-dark'>{items.id}</h3>
                         <p>${items.title}</p>
                     </div>
