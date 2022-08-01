@@ -8,6 +8,7 @@ import Spiner from './Spiner';
 import { useAxios } from './useAxios';
 // import Wrong from './wrong.gif'
 import { ModalContainer, ModalBody, ModalBox, ModalHeader } from './Modal';
+import MyPagination from './MyPagination';
 
 const ProductCard = () => {
 
@@ -24,12 +25,18 @@ const ProductCard = () => {
     const [windowWidth, setWindowWidth] = useState(initialScreenWidth)
     const [modal, setModal] = useState(false);
     const [selectedData, setSelectedData] = useState(null);
-    const [isComplete, setIsComplete] = useState(false);
+    const [isComplete, setIsComplete] = useState(true);
 
+    const [currentPage, setCurrentPage] = useState(parseInt(1))
+    const [PostPerPage] = useState(parseInt(20))
+
+    // main api
+    // https://jsonplaceholder.typicode.com/photos
     const { data, error, loading } = useAxios({
         method: "GET",
-        url: 'todos'
+        url: isComplete ? 'todos' : 'photos'
     });
+
 
     useEffect(() => {
         data ? setProductList(data) : setProductList([])
@@ -49,33 +56,43 @@ const ProductCard = () => {
 
     const handleModal = () => {
         setModal(!modal)
-        console.log("first")
     }
 
     const onHandleComplete = () => {
         setIsComplete(!isComplete)
         console.log(isComplete)
-
     }
 
+    // implement here pagination ideas
+    const indexOfLastPost = currentPage * PostPerPage;
+    const indexOfFirstPost = indexOfLastPost - PostPerPage;
+    const currentPost = productList.slice(indexOfFirstPost, indexOfLastPost)
 
-    const renderData = productList.map((items) => (
-        <Col lg={3} md={4} sm={6} key={items.id}>
-            <Card className='mb-3 p-1' style={{ backgroundColor: '#e6e6e666', boxShadow: '5px 5px 0px 2px #e0e0e018' }}>
-                <Card.Img src={iphone} alt="image" />
-                <Card.Body className=''>
-                    <div className="p-2">
-                        <input type="checkbox" defaultChecked={items.completed === true} onChange={onHandleComplete} />
-                        <h3 className='text-dark'>{items.id}</h3>
-                        <p>${items.title}</p>
-                    </div>
-                    <p>{items.Description}</p>
-                    <div className="d-flex justify-content-between">
-                        <Button color='gold' border="1px solid #EEEEEE" radius={'6px'} padding={'10px 20px'} fontColor={'#ffffff'}>Buy Now</Button>
-                        <Button handleClick={() => handleClick(items)} color='rgba(33, 138, 219, 0.733)' border="1px solid #EEEEEE" radius={'6px'} padding={'10px 20px'} fontColor={'#ffffff'}>View Now</Button>
-                    </div>
-                </Card.Body>
-            </Card>
+    // console.log([1, 2, 3, 4, 5, 6, 7].slice(0, 5))
+
+    // console.log(currentPage, "postss")
+
+    const handlePagination = (pageNumbers) => setCurrentPage(pageNumbers)
+
+    const renderData = currentPost.map((items) => (
+        <Col lg={3} md={4} sm={6} key={items.id} >
+            <div style={{ height: 'auto' }}>
+                <Card className='my-card mb-3 p-1'>
+                    <Card.Img src={items.thumbnailUrl} alt="image" />
+                    <Card.Body>
+                        <div className="p-2">
+                            <input type="checkbox" defaultChecked={items.completed === true} onChange={onHandleComplete} />
+                            <h3 className='text-dark'>{items.id}</h3>
+                            <p>${items.title}</p>
+                        </div>
+                        <p>{items.Description}</p>
+                        <div className="d-flex justify-content-between">
+                            <Button color='gold' border="1px solid #EEEEEE" radius={'6px'} padding={'10px 20px'} fontColor={'#ffffff'}>Buy Now</Button>
+                            <Button handleClick={() => handleClick(items)} color='rgba(33, 138, 219, 0.733)' border="1px solid #EEEEEE" radius={'6px'} padding={'10px 20px'} fontColor={'#ffffff'}>View Now</Button>
+                        </div>
+                    </Card.Body>
+                </Card>
+            </div>
         </Col >
     ))
 
@@ -117,6 +134,7 @@ const ProductCard = () => {
                                 </>
                         }
                     </Row>
+                    <MyPagination totalPosts={productList.length} PostPerPage={PostPerPage} handlePagination={handlePagination} />
                     <ModalContainer >
                         <Button handleClick={handleModal}>OpenModal</Button>
                         <ModalBox className={modal ? 'active-modal' : ''} >
