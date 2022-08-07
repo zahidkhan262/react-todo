@@ -17,14 +17,14 @@ const userTable = ({ userData, tableColumn }) => {
                 </tr>
             </thead>
             <tbody>
-                {userData.map((user, id) => {
+                {userData.map((row, id) => {
                     return (
                         <React.Fragment key={id}>
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>{user.username}</td>
-                                <td>{user.company_name}</td>
-                                <td>{user.address}</td>
+                            <tr key={row.id}>
+                                <td>{row.id}</td>
+                                <td>{row.username}</td>
+                                <td>{row.company_name}</td>
+                                <td>{row.address}</td>
                                 <td>
                                     <button className='btn btn-danger mx-2'>Delete</button>
                                     <button className='btn btn-success'>Edit</button>
