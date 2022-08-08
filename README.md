@@ -1,4 +1,6 @@
 # Getting Started with Create React App
+//redux diagram with or without middleware
+https://medium.com/@aksudupa11/redux-sagas-714370b61692
 \https://akhtarvahid.medium.com/crud-application-in-react-js-with-redux-and-hooks-e0367b6aeeb2
 learning react with next js from 02july2022
 
