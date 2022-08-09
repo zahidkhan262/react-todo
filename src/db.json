@@ -1,0 +1,34 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "imgPath": "/iphone1.png",
+            "name": "Apple Iphone X",
+            "price": 70000,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "quantity": 8,
+            "brand": "Apple",
+            "category": "mobile"
+        },
+        {
+            "id": 2,
+            "imgPath": "/iphone1.png",
+            "name": "Apple Iphone XR",
+            "price": 40000,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "quantity": 1,
+            "brand": "Apple",
+            "category": "mobile"
+        },
+        {
+            "id": 3,
+            "imgPath": "/iphone1.png",
+            "name": "Apple Iphone 11",
+            "price": 52000,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "quantity": 5,
+            "brand": "Apple",
+            "category": "mobile"
+        }
+    ]
+}
