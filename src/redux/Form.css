@@ -1,0 +1,52 @@
+.form {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    padding: 20px 15px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    width: 100%;
+    position: relative;
+}
+
+.input-field input {
+    width: 80%;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.input-field input:focus {
+    transition: 0.3s;
+    border-bottom: 1px solid #fff;
+    outline: 1px solid rgba(71, 71, 255, 0.87);
+}
+
+.form-btn button {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-btn button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent;
+    color: #575757;
+}
+
+.pass-lock {}
+
+.pass-lock-icon {
+    position: absolute;
+    right: 70px;
+    top: 6px;
+    color: #c4c4c4;
+    font-size: 22px !important;
+    cursor: pointer;
+}
