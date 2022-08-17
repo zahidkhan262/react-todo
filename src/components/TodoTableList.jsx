@@ -9,19 +9,23 @@ import './Todo.css'
 import loader from './loader.gif'
 
 const TodoTableList = () => {
-    const tableColumn = ["TASK NAME", "ACTION"];
+    const dispatch = useDispatch();
     // useSelector
     const { todos } = useSelector((state) => state.todo)
     console.log(todos, "redux")
 
-    const dispatch = useDispatch()
+    const tableColumn = ["USER", "TASK", "ACTION"];
     // view
     const [show, setShow] = useState(false);
     const [showSelectedData, setShowSelectedData] = useState("");
 
     // update
     const [showEdit, setShowEdit] = useState(false);
-    const [update, setUpdate] = useState("");
+    const [update, setUpdate] = useState({
+        taskname: "",
+        username: ""
+    });
+    console.log(update, "upd")
     const [index, setIndex] = useState("")
 
 
@@ -44,14 +48,23 @@ const TodoTableList = () => {
     // open edit modal
     const handleShowEdit = (task) => {
         setShowEdit(true)
-        setUpdate(task)
+        setUpdate({ ...update, taskname: task.taskname, username: task.username })
     }
-    // update todo UPDATE
+    console.log(update, "are")
+    // edit handle input
+    const handleEditField = (e) => {
+        const { name, value } = e.target;
+        setUpdate({
+            ...update,
+            [name]: value
+        })
+    }
 
+    // update todo UPDATE
     const updateTodoData = (e) => {
-        if (!update) {
-            return toast.error("Enter task name.")
-        }
+        // if (!update) {
+        //     return toast.error("Enter task name.")
+        // }
         dispatch(updateTodo(update, index))
         setShowEdit(false)
         toast.info("Task Updated.")
@@ -70,7 +83,8 @@ const TodoTableList = () => {
         return (
             <React.Fragment key={id}>
                 <tr key={task}>
-                    <td><p className='fs-5 mt-3 text-dark text-capitalize'>{task}</p></td>
+                    <td><p className='fs-5 mt-3 text-dark text-capitalize'>{task?.username}</p></td>
+                    <td><p className='fs-5 mt-3 text-dark text-capitalize'>{task?.taskname}</p></td>
                     <td>
                         <Button className='btn btn-danger' onClick={() => removeTodo(id)}><FontAwesomeIcon icon={faTrash} /></Button>
                         <Button className='btn btn-success m-2' onClick={() => {
@@ -89,7 +103,7 @@ const TodoTableList = () => {
             <Modal.Header closeButton>
                 <Modal.Title>View Todo</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{showSelectedData}</Modal.Body>
+            <Modal.Body>{showSelectedData.taskname}</Modal.Body>
         </Modal>
     )
 
@@ -104,9 +118,18 @@ const TodoTableList = () => {
                         <input
                             type="text"
                             placeholder='Enter your task...'
-                            name='todo'
-                            value={update}
-                            onChange={(e) => setUpdate(e.target.value)}
+                            name='taskname'
+                            value={update.taskname}
+                            onChange={handleEditField}
+                        />
+                    </div>
+                    <div className="input-field">
+                        <input
+                            type="text"
+                            placeholder='Enter your task...'
+                            name='username'
+                            value={update.username}
+                            onChange={handleEditField}
                         />
                     </div>
                     <div className="form-btn mt-4">
@@ -136,13 +159,11 @@ const TodoTableList = () => {
                 {
                     todos.length ?
                         <Table striped bordered hover className='table-success text-center'>
-
                             <thead className='table-dark' >
                                 <tr>
                                     {THEAD}
                                 </tr>
                             </thead>
-
                             <tbody>
                                 {TBODY}
                             </tbody>
