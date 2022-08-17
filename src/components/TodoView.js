@@ -9,12 +9,13 @@ import TodoLogo from './TodoLogo'
 
 
 const TodoView = () => {
-    const dispatch = useDispatch();
-
-    const [todoData, setTodoData] = useState({
+    const initialInput = {
         taskname: "",
         username: ""
-    })
+    }
+    const dispatch = useDispatch();
+
+    const [todoData, setTodoData] = useState(initialInput)
 
     // const [todoData, setTodoData] = useState({
     //     taskname: "",
@@ -38,14 +39,14 @@ const TodoView = () => {
 
     // add todo
     const addTodoData = () => {
-
-        if (!todoData) {
-            return toast.error("Please enter task")
+        const { taskname, username } = todoData
+        if (!taskname || !username) {
+            return toast.error("Please fill the fields...")
         } else if (todoData.taskname.length < 3) {
             return toast.error("Task must be greater than 2 letter")
         }
         dispatch(addTodo(todoData))
-        setTodoData("")
+        setTodoData(initialInput)
         toast.success("Added Successfully")
     }
     console.log(todoData, "todoData")
