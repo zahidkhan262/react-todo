@@ -1,166 +1,94 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: arial;
-}
-:root{
-    --main_color:#008080;
-    --white_color:#e6e3e3;
-    --danger_color:crimson;
-    --light-white:#FFFFFF;
-    --black_color:#000000;
-}
-.center{
+.form {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    padding: 20px 15px;
+    margin: 50px auto;
     text-align: center;
-    font-size: 22px;
-    color: #03a9f4;
-    font-weight: 900;
-}
-input,button{
-    border: none;
-    outline: none;
-    cursor:pointer;
 }
 
-.d-flex-1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.container-1{
-    min-height: 100vh;
+.input-field {
+    margin-bottom: 15px;
     width: 100%;
-    background: #011a44;
-    padding: 60px 20px;
     position: relative;
 }
-.form_box{
-    max-width: 600px;
-    background: linear-gradient(146deg,var(--main_color)50%, var(--white_color)50%);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    padding: 20px;
-    margin: auto;
-}
-.input_field{
-    display: flex;
-    margin: 20px auto;
-    border-radius: 5px 5px 0 0;
-    
-    padding: 20px;
-}
-input{
-    flex: 3;
-    padding: 10px 12px;
-    border-radius: 5px 0 0 5px;
-    font-size: 17px;
-}
-.add_btn{
-    flex: 1;
-    padding: 10px 12px;
-    background: var(--black_color);
-    color: var(--white_color);
-    font-size: 22px;
-    border-radius: 0 5px 5px 0;
-}
-.add_btn:hover{
-    opacity: 0.9;
-}
-.todo_list{
-   margin: 0;
-   padding: 20px;
-   overflow: hidden;
-}
-li{
-    width: 100%;
-    list-style: none;
-    background: #00a3e4a1;
-    padding: 10px;
-    border-radius: 3px;
-    margin: 10px 0;
-    color: var(--white_color);
-    font-size: 19px;
-}
-li p{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-}
-.edit_btn, .delete_btn{
-    padding: 6px 12px;
-    margin: 5px 0;
-    color: var(--white_color);
-    border-radius: 6px;
-    font-size: 15px;
-}
-.edit_btn{
-    margin-right: 5px;
-    background: var(--main_color);
-}
-.delete_btn{
-    background: var(--danger_color);
+
+.input-field input {
+    width: 80%;
+    padding: 8px 12px;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
 }
 
-.modals_container{
-    width: 100%;
-    background: rgba(255, 255, 255, 0.205);
-    height: 100vh;
+.input-field input {
+    outline: none;
+}
+
+.input-field input:hover {
+    transition: 0.3s;
+}
+
+.form-btn button {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-btn button:hover {
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent;
+    color: #575757;
+}
+
+
+.pass-lock-icon {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    animation: anim 0.3s linear ;
-}
-@keyframes anim{
-    0%, 100%{
-        transition: 0.3s;
-        background: rgba(224, 222, 222, 0.205);
-    }
+    right: 70px;
+    top: 6px;
+    color: #c4c4c4;
+    font-size: 22px !important;
+    cursor: pointer;
 }
 
-.modals_body{
-    background: #cfe8fc;
-    box-shadow: 0 0 20px 10px rgba(0,0,0,0.5);
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateY(100%);
-    max-width: 600px;
-    margin: 0 auto;
-    height: 600px;
+/* todo logo */
+
+.todo-logo {
+    background: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 8px;
+    cursor: pointer;
     transition: 0.4s;
+
 }
-.active{
-    top: 50px;
-    transform: translateY(0%);
-    transition: 0.4s;
-}
-.modal_header{
-    padding: 10px;
+
+.plus-icon {
+    font-size: 32px;
+    font-weight: 600;
+    color: #005881;
 }
 
 
-@media(max-width:756px){
-    .form_box{
-        width: 100%;
-        padding:20px 10px;
-        margin: 20px auto;
-    }
-    .input_field{
-        width: 100%;
+.todo-logo:hover .plus-icon {
+    font-size: 40px;
+    animation: rotates 1s linear;
 
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotate(120deg);
     }
-    input{
-        flex: 2;
-        padding: 8px;
-        font-size: 14px;
+
+    50% {
+        transform: rotate(220deg);
     }
-    .edit_btn, .delete_btn,.add_btn{
-        padding: 4px 6px;
-        font-size: 12px;
+
+    100% {
+        transform: rotate(360deg);
     }
 }
