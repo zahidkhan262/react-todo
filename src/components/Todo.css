@@ -1,0 +1,96 @@
+.form {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    padding: 20px 15px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    width: 100%;
+    position: relative;
+}
+
+.input-field input {
+    width: 80%;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.input-field input {
+    outline: none;
+}
+
+.input-field input:hover {
+    transition: 0.3s;
+    border-bottom: 1px solid #fff;
+    border: 2px solid rgb(9, 121, 248);
+}
+
+.form-btn button {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-btn button:hover {
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent;
+    color: #575757;
+}
+
+
+.pass-lock-icon {
+    position: absolute;
+    right: 70px;
+    top: 6px;
+    color: #c4c4c4;
+    font-size: 22px !important;
+    cursor: pointer;
+}
+
+/* todo logo */
+
+.todo-logo {
+    background: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.4s;
+
+}
+
+.plus-icon {
+    font-size: 32px;
+    font-weight: 600;
+    color: #005881;
+}
+
+
+.todo-logo:hover .plus-icon {
+    font-size: 40px;
+    animation: rotates 1s linear;
+
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotate(120deg);
+    }
+
+    50% {
+        transform: rotate(220deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
