@@ -1,0 +1,48 @@
+.cards {
+    min-height: 350px;
+    width: 300px;
+    border: 0.5px solid #a5a5a5;
+    margin: 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+
+.cards-img {
+    height: 220px;
+    width: 100%;
+    background: #a5a5a5;
+}
+
+.cards-img img {
+    width: 100%;
+}
+
+.cards-header {
+    padding: 5px;
+}
+
+
+.cards-user-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: #a5a5a5;
+    margin-right: 10px;
+    margin-top: 6px;
+
+}
+
+.cards-user-info h6 {
+    font-size: 16px;
+}
+
+.cards-user-info p {
+    font-size: 14px;
+}
+
+.cards-body {}
+
+.cards-user-profile img {
+    width: 100%;
+}
