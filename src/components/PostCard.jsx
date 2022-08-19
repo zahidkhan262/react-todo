@@ -1,5 +1,7 @@
 import React from 'react'
-import './Post.css'
+import './Post.css';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const PostCard = () => {
   return (
     <>
@@ -13,6 +15,13 @@ const PostCard = () => {
         </div>
         <div className="cards-body">
           <div className="cards-img"></div>
+        </div>
+        <div className='cards-footer d-flex justify-content-between align-items-center '>
+          <div className="cards-about">
+            <p>Chetu India Pvt ltd.</p>
+            <p>Noida UP Inida</p>
+          </div>
+          <FontAwesomeIcon icon={faHeart} className='card-heart' />
         </div>
       </div>
 
