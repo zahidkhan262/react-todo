@@ -1,15 +1,24 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import PostCard from './PostCard'
 
 const Post = () => {
+    const { posts } = useSelector((state) => state.post)
+    // console.log(posts, "getpost")
     return (
         <>
-            <Container>
+            <Container className='fixHeigth'>
                 <Row>
-                    <Col md={3}>
-                        <PostCard />
-                    </Col>
+                    {
+                        posts && posts?.map((post, idx) => {
+                            return (
+                                <React.Fragment key={idx}>
+                                    <PostCard post={post} id={idx} />
+                                </React.Fragment>
+                            )
+                        })
+                    }
                 </Row>
             </Container>
         </>
