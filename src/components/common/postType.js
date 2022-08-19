@@ -1,0 +1,6 @@
+export const ADD_POST = 'ADD_POST'
+export const DLT_POST = 'DLT_POST'
+export const EDIT_POST = 'EDIT_POST'
+export const LIKE_POST = 'LIKE_POST'
+export const FAV_POST = 'FAV_POST'
+export const REM_FAV_POST = 'REM_FAV_POST' 
