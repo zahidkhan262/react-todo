@@ -1,38 +1,3 @@
-import React from 'react'
-import './Post.css';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const PostCard = () => {
-  return (
-    <>
-      <div className="cards">
-        <div className="cards-header d-flex align-items-center justify-content-start">
-          <div className="cards-user-profile"></div>
-          <div className="cards-user-info text-white ">
-            <h6 className='mt-2 mb-0'>Zahid khan</h6>
-            <p className='mb-0'>React Developer</p>
-          </div>
-        </div>
-        <div className="cards-body">
-          <div className="cards-img"></div>
-        </div>
-        <div className='cards-footer d-flex justify-content-between align-items-center '>
-          <div className="cards-about">
-            <p>Chetu India Pvt ltd.</p>
-            <p>Noida UP Inida</p>
-          </div>
-          <FontAwesomeIcon icon={faHeart} className='card-heart' />
-        </div>
-      </div>
-
-    </>
-  )
-}
-
-export default PostCard
-
-// after dynamic data
-
 import React, { useEffect, useState } from 'react'
 import './Post.css';
 import { faEllipsisVertical, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -44,21 +9,22 @@ import PROFILE_PIC from '../images/profile.jpg'
 import POST_PIC from '../images/post2.jfif'
 // import { useNavigate } from 'react-router-dom';
 const PostCard = ({ post, id }) => {
-  const [isLikePost, setIsLikePost] = useState(false);
+
   const { fullname, designation, companyAddress, companyName } = post
-
+  const [isLikePost, setIsLikePost] = useState(false);
+  const [isFav, setIsFav] = useState(false);
   // console.log(post, "postcard")
-
-  const favPosts = useSelector((state) => state.post.favouritePost);
   const dispatch = useDispatch();
   // const navigate = useNavigate()
+
+  // redux
+  const favPosts = useSelector((state) => state.post.favouritePost);
 
   useEffect(() => {
     favPosts && favPosts.map((p, i) => {
       if (i === id) {
-        setIsLikePost(true);
+        setIsFav(true)
       }
-      console.log("first")
     })
   }, [favPosts]);
 
@@ -70,13 +36,13 @@ const PostCard = ({ post, id }) => {
   // fav post
   const addFav = (post) => {
     dispatch(favPost(post))
-    // setIsLikePost(true)
   }
 
   const popover = (
     <Popover id="popover-basic" className='pop-overs'>
       <Popover.Header onClick={() => deletePost(id)}>Delete</Popover.Header>
       <Popover.Header>Edit</Popover.Header>
+      <Popover.Header onClick={() => !isFav ? addFav(post) : undefined}>Favourite</Popover.Header>
     </Popover>
   );
 
@@ -98,14 +64,14 @@ const PostCard = ({ post, id }) => {
             </OverlayTrigger>
           </div>
           <div className="cards-body">
-            <div className="cards-img"><Image src={POST_PIC} alt="post" /></div>
+            <div className="cards-img"><Image src='' alt="post" /></div>
           </div>
           <div className='cards-footer d-flex justify-content-between align-items-center '>
             <div className="cards-about">
               <p>{companyName}</p>
               <p>{companyAddress}</p>
             </div>
-            <FontAwesomeIcon icon={faHeart} style={isLikePost ? { color: 'crimson' } : { color: 'gray' }} className='heart-icon' onClick={() => !isLikePost ? addFav(post) : undefined} />
+            <FontAwesomeIcon icon={faHeart} style={isLikePost ? { color: 'crimson' } : { color: 'gray' }} className='heart-icon' />
           </div>
         </div>
       </Col>
