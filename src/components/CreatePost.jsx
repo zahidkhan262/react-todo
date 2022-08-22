@@ -18,10 +18,12 @@ const CreatePost = () => {
         companyName: "",
         companyAddress: ""
     })
-    const [uploadPost, setUploadPost] = useState({})
+    const [uploadPost, setUploadPost] = useState("")
     // console.log(uploadPost, "-")
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    // const { state } = useLocation()
+    // console.log(state, 'state')
 
     // handle post input
     const handlePostInput = (e) => {
@@ -29,6 +31,7 @@ const CreatePost = () => {
         setPostInput(() => {
             return {
                 ...postInput,
+                imgUrl: uploadPost,
                 [name]: value
             }
         })
@@ -43,10 +46,13 @@ const CreatePost = () => {
     // submit post 
     const createPost = () => {
         const { fullname, designation, companyName, companyAddress } = postInput
+
         if (!fullname || !designation || !companyName || !companyAddress) return toast.error("Please fill the fields...")
+
         if (fullname.length < 3 || designation.length < 3 || companyName.length < 3 || companyAddress.length < 3) return toast.error("Input must be greater than 3 letters")
-        // if (typeof fullname === "string") return toast.error("Input must be string")
-        dispatch(addPost(postInput, uploadPost))
+
+        dispatch(addPost(postInput))
+
         if (postInput) {
             navigate('/post')
             toast.success("Post created..")
