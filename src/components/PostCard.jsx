@@ -3,11 +3,12 @@ import './Post.css';
 import { faEllipsisVertical, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col, Image, OverlayTrigger, Popover } from 'react-bootstrap';
-import { dltPost, favPost } from '../../redux/action/postAction';
+import { dltPost, favPost, likePost } from '../../redux/action/postAction';
 import { useDispatch, useSelector } from 'react-redux';
 import PROFILE_PIC from '../images/profile.jpg'
 import { useNavigate } from 'react-router';
 import { EDITPOST } from '../../router/constant';
+import { toast } from 'react-toastify';
 // import { useNavigate } from 'react-router-dom';
 const PostCard = ({ post, id }) => {
 
@@ -45,6 +46,10 @@ const PostCard = ({ post, id }) => {
 
     // console.log(id, ',//////////')
   }
+  const handleLike = (i) => {
+    if (id === i) setIsLikePost(true)
+
+  }
 
   const popover = (
     <Popover id="popover-basic" className='pop-overs'>
@@ -81,7 +86,7 @@ const PostCard = ({ post, id }) => {
               <p>{companyName}</p>
               <p>{companyAddress}</p>
             </div>
-            <FontAwesomeIcon icon={faHeart} style={isLikePost ? { color: 'crimson' } : { color: 'gray' }} className='heart-icon' />
+            <FontAwesomeIcon icon={faHeart} style={isLikePost ? { color: 'crimson' } : { color: 'gray' }} className='heart-icon' onClick={() => !isLikePost ? handleLike(id) : undefined} />
           </div>
         </div>
       </Col>
