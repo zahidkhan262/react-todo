@@ -8,27 +8,19 @@ import { editPost } from '../../redux/action/postAction'
 import { POST } from '../../router/constant'
 const EditPost = () => {
 
+    const [editImgPost, setEditImgPost] = useState("");
     const [editPostInput, setEditPostInput] = useState({
         fullname: "",
         designation: "",
         companyName: "",
         companyAddress: "",
-        imgUrl: ""
     });
+
+
     const { posts } = useSelector((state) => state.post);
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { id } = useParams()
-
-    useEffect(() => {
-        posts.find((p, i) => {
-            if (i === parseInt(id)) {
-                setEditPostInput({ ...editPostInput, fullname: p.fullname, designation: p.designation, companyName: p.companyName, companyAddress: p.companyAddress })
-                console.log(p, "uniq data")
-            }
-        })
-    }, [id]);
-
 
     // handle post input
     const handlePostInput = (e) => {
@@ -36,23 +28,40 @@ const EditPost = () => {
         setEditPostInput(() => {
             return {
                 ...editPostInput,
-                [name]: value
+                [name]: value,
             }
         })
     }
 
+    const handlePostImg = (e) => {
+        setEditImgPost(URL.createObjectURL(e.target.files[0]))
+        setEditPostInput(() => {
+            return {
+                ...editPostInput,
+                imgUrl: URL.createObjectURL(e.target.files[0]),
+            }
+        })
+    }
 
     const updatePost = () => {
         dispatch(editPost(editPostInput, id))
         navigate(POST)
     }
 
+    useEffect(() => {
+        posts.find((p, i) => {
+            if (i === parseInt(id)) {
+                setEditPostInput({ ...editPostInput, fullname: p.fullname, designation: p.designation, companyName: p.companyName, companyAddress: p.companyAddress, imgUrl: p.imgUrl })
+            }
+        })
+    }, [id]);
+
     const FORM = (
         <div className="form">
             <h2 className='mb-4'>Create Post</h2>
             <FormLabel htmlFor='upload'>
                 <FontAwesomeIcon icon={faCloudArrowUp} className='fs-1 text-primary' />
-                <input type="file" value={editPostInput.imgUrl} onChange={handlePostInput} id='upload' />
+                <input type="file" onChange={handlePostImg} id='upload' />
                 <p className='mt-1 text-secondary'>Upload Post</p>
             </FormLabel>
 
