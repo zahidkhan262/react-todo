@@ -7,7 +7,23 @@
     padding: 20px 15px;
     margin: 50px auto;
     text-align: center;
+    min-height: 320px;
+    position: relative;
 }
+
+/* image for post */
+/* .form:hover .post {
+    width: 100%;
+    transition: 0.4s;
+    height: 100%;
+    background: rgba(199, 31, 31, 0.623) !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999000;
+    border-radius: 8px;
+} */
 
 .input-field {
     margin-bottom: 15px;
@@ -18,8 +34,12 @@
 .input-field input {
     width: 80%;
     padding: 8px 12px;
-    border: 2px solid transparent;
+    border: none;
     border-bottom: 1px solid #c4c4c4;
+}
+
+.input-field input:focus {
+    border-bottom: 2px solid #4640c7;
 }
 
 .input-field input {
@@ -28,20 +48,17 @@
 
 .input-field input:hover {
     transition: 0.3s;
-    border-bottom: 1px solid #fff;
-    border: 2px solid rgb(9, 121, 248);
 }
 
 .form-btn button {
     font-size: 20px;
     font-weight: 500;
+    background: #4640c7;
 }
 
-.form-btn button:hover {
+.form-btn button:focus {
     box-shadow: none !important;
     outline: none !important;
-    background: transparent;
-    color: #575757;
 }
 
 
@@ -81,16 +98,68 @@
 
 }
 
+.user-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0067ff66;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 32px;
+    color: gray;
+    margin: 0px auto;
+    font-weight: 700;
+    box-shadow: 8px 0px 5px rgb(0 0 0 / 40%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.user-logo:hover {
+    box-shadow: none;
+    background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+}
+
+.img-set input[type="file"] {
+    display: none;
+}
+
+.user-profile {
+    width: 60px;
+    height: 60px;
+    border: 1px dotted #6a82fb;
+    border-radius: 100%;
+    margin: 0px auto;
+    background: linear-gradient(270deg, #3fa1a9, #79f1a4);
+}
+
+.no-data {
+    width: 46%;
+    margin: 10px auto;
+}
+
+.no-data img {
+    max-width: 600px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 @keyframes rotates {
     0% {
         transform: rotate(120deg);
+        font-size: 32px;
     }
 
     50% {
         transform: rotate(220deg);
+        font-size: 42px;
     }
 
     100% {
         transform: rotate(360deg);
+        font-size: 49px;
     }
 }
+
+@media(max-width:576px) {}

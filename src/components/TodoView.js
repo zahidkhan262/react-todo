@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import TodoTableList from './TodoTableList'
 import { useDispatch } from 'react-redux'
-import { addTodo } from '../redux/action/todoAction';
+import { addTodo } from '../../redux/action/todoAction';
 import './Todo.css'
 import TodoLogo from './TodoLogo'
 
@@ -15,7 +15,7 @@ const TodoView = () => {
     }
     const dispatch = useDispatch();
 
-    const [todoData, setTodoData] = useState(initialInput)
+    const [todoData, setTodoData] = useState(initialInput);
 
     // const [todoData, setTodoData] = useState({
     //     taskname: "",
@@ -26,7 +26,6 @@ const TodoView = () => {
     // for multiple input data
     const handleFormInput = (e) => {
         const { name, value } = e.target;
-
         setTodoData(() => {
             return {
                 ...todoData,
@@ -42,69 +41,72 @@ const TodoView = () => {
         const { taskname, username } = todoData
         if (!taskname || !username) {
             return toast.error("Please fill the fields...")
-        } else if (todoData.taskname.length < 3) {
-            return toast.error("Task must be greater than 2 letter")
+        } else if (todoData.taskname.length < 4) {
+            return toast.error("Task must be greater than 3 letter")
+        } else if (todoData.username.length < 3) {
+            return toast.error("Username must be greater than 3 letter")
         }
         dispatch(addTodo(todoData))
         setTodoData(initialInput)
         toast.success("Added Successfully")
     }
-    console.log(todoData, "todoData")
+    // console.log(todoData, "todoData")
 
-    console.log(todoData.taskname, "task")
-    console.log(todoData.username, "name")
+
+
 
 
     // form
     const FORM = (
         <div className="form">
-            <h2 className='mb-4'>Todo</h2>
+            <h2 className='mb-4'>CRUD</h2>
+
             <div className="input-field">
                 <input
                     type="text"
-                    placeholder='Enter your task...'
+                    placeholder='Task Name'
                     name='taskname'
                     value={todoData.taskname}
                     // onChange={(e) => setTodoData(e.target.value)}
+                    autoComplete='off'
                     onChange={handleFormInput}
                 />
             </div>
             <div className="input-field">
                 <input
                     type="text"
-                    placeholder='Enter your task...'
+                    placeholder='User Name'
                     name='username'
                     value={todoData.username}
                     // onChange={(e) => setTodoData(e.target.value)}
+                    autoComplete='off'
                     onChange={handleFormInput}
                 />
             </div>
 
             <div className="form-btn mt-4">
-
                 <Button
-                    className='btn btn-primary col-md-8 col-xs-12'
-                    variant='outline'
+                    className='btn  col-md-6 col-xs-12'
                     onClick={() => addTodoData()}
                 >
                     <TodoLogo />
                 </Button>
             </div>
-        </div>
+        </div >
     )
     return (
         <>
-            <Container className='fixHeigth'>
-                <Row>
-                    {/* <Col md={6}></Col> */}
-                    <Col md={12}>
-                        {FORM}
-                    </Col>
-
+            <div className="fixHeigth">
+                <Container>
+                    <Row>
+                        {/* <Col md={6}></Col> */}
+                        <Col md={12}>
+                            {FORM}
+                        </Col>
+                    </Row>
                     <TodoTableList />
-
-                </Row>
-            </Container>
+                </Container>
+            </div>
         </>
     )
 }
