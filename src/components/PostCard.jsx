@@ -26,11 +26,14 @@ const PostCard = ({ post, id }) => {
   useEffect(() => {
     favPosts && favPosts.map((p, i) => {
       if (i === id) {
-        setIsFav(true)
+        return setIsFav(true)
       }
     })
+    handleLike()
   }, [favPosts]);
 
+
+  // console.log("favPosts======", favPosts)
   // delete post
   const deletePost = (id) => {
     dispatch(dltPost(id))
@@ -57,14 +60,17 @@ const PostCard = ({ post, id }) => {
       <Popover.Header onClick={() => {
         handleEditPost(id)
       }}>Edit</Popover.Header>
-      <Popover.Header onClick={() => !isFav ? addFav(post) : undefined}>Favourite</Popover.Header>
+      <Popover.Header onClick={() => {
+        return (!isFav ? addFav(post) : undefined)
+      }}>
+        Favourite</Popover.Header>
     </Popover>
   );
 
 
   return (
     <>
-      <Col lg={4} md={4} xs={6}>
+      <Col lg={4} md={4} xs={12}>
         <div className="cards">
           <div className="cards-header d-flex align-items-center justify-content-between">
             <div className="cards-user-detail d-flex align-items-center justify-content-start">
