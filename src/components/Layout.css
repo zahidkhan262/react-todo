@@ -1,6 +1,5 @@
 header {
     background: #e9ecef96;
-    padding: 0px 30px;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -44,7 +43,7 @@ nav li a {
 
 .dropdown-content {
     position: absolute;
-    right: -25px;
+    right: 0px;
     top: 59px;
     background: #fafafa;
     display: none;
@@ -93,4 +92,44 @@ nav li a {
     width: 100%;
     background-position: center;
     background-size: cover;
+}
+
+.page-not-found {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.page-not-found img {
+    width: 100%;
+
+}
+
+.profile-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0067ff66;
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    line-height: 20px;
+    font-size: 19px;
+    color: #fafafa;
+    font-weight: 700;
+    box-shadow: 8px 0px 5px rgb(0 0 0 / 40%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.logout-icon {
+    font-size: 25px;
+    position: relative;
+    color: #0d6efd;
+    top: 5px;
+    left: 5px;
+}
+
+.logout-icon:hover {
+    color: crimson;
 }
