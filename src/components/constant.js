@@ -1,3 +1,4 @@
+export const PAGENOTFOUND = '*'
 export const INDEX = '/'
 export const TODO = '/todo'
 export const POST = '/post'
