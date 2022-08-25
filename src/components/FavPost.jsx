@@ -1,8 +1,6 @@
 import React from 'react'
-import { Col, Container, Image, Row } from 'react-bootstrap'
+import { Button, Container, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import PROFILE_PIC from '../images/profile.jpg';
-import POST_PIC from '../images/post2.jfif'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import { remFavPost } from '../../redux/action/postAction';
@@ -13,46 +11,36 @@ const FavPost = () => {
 
 
     const FavouritePost = favPosts && favPosts.map((fav, idx) => {
-        const { fullname, designation, companyAddress, companyName } = fav
+        const { fullname, designation, companyAddress, companyName, imgUrl } = fav
 
         return (
             <React.Fragment key={idx}>
-                <Col md={6}>
-                    <div className="cards">
-                        <div className="cards-header d-flex align-items-center justify-content-between">
-                            <div className="cards-user-detail d-flex align-items-center justify-content-start">
-                                <div className="cards-user-profile"><Image src={PROFILE_PIC} alt="profile" /></div>
-                                <div className="cards-user-info text-white ">
-                                    <h6 className='mt-2 mb-0'>{fullname}</h6>
-                                    <p className='mb-0'>{designation}</p>
-                                </div>
-                            </div>
-                            <FontAwesomeIcon icon={faHeartBroken} className="heart-icon" onClick={() => dispatch(remFavPost(idx))} />
-                        </div>
-                        <div className="cards-body">
-                            <div className="cards-img"><Image src={POST_PIC} alt="post" /></div>
-                        </div>
-                        <div className='cards-footer d-flex justify-content-between align-items-center '>
-                            <div className="cards-about">
-                                <p>{companyName}</p>
-                                <p>{companyAddress}</p>
-                            </div>
+                <div className="fav-cards my-2 d-flex align-items-center">
+                    <div className="fav-img">
+                        <Image src={imgUrl} alt="post" />
+                    </div>
+                    <div className="fav-info">
+                        <h5><strong>Name : </strong>{fullname}</h5>
+                        <h5><strong>Designation : </strong>{designation}</h5>
+                        <h5><strong>Company Name : </strong>{companyName}</h5>
+                        <h5><strong>Company Address : </strong>{companyAddress}</h5>
+                        <div className="un-fav">
+                            <Button className='col-md-12 btn-info text-white' onClick={() => dispatch(remFavPost(idx))}>
+                                Remove Fav
+                                <FontAwesomeIcon icon={faHeartBroken} className='heart-icon fs-6 mx-2' /></Button>
                         </div>
                     </div>
-                </Col>
-            </React.Fragment>
+                </div>
+            </React.Fragment >
         )
     })
 
     return (
         <>
-            <Container>
-                <Row>
-                    {
-                        FavouritePost
-                    }
-
-                </Row>
+            <Container className='fixHeigth'>
+                {
+                    FavouritePost
+                }
             </Container>
         </>
     )
