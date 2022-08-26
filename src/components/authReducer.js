@@ -17,6 +17,7 @@ export const authReducer = (state = initialState, action) => {
                 user: action.payload
             }
         case LOGOUT_FORM:
+            localStorage.removeItem('state')
             return {
                 ...state,
                 user: null
