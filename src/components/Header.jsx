@@ -50,7 +50,8 @@ const Header = () => {
                             }
                             {isAuthUser
                                 &&
-                                <li style={signToggle ? { display: 'none' } : null}><FontAwesomeIcon icon={faSignOut} className='logout-icon' onClick={() => dispatch(logoutForm())} /></li>
+                                <li style={signToggle ? { display: 'inline-block' } : { display: 'none' }}>
+                                    <FontAwesomeIcon icon={faSignOut} className='logout-icon' onClick={() => dispatch(logoutForm())} /></li>
                             }
                         </nav>
                     </div>
