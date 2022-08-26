@@ -13,7 +13,6 @@ const Register = () => {
         lastname: "",
         email: "",
         password: "",
-        cpassword: ""
     });
     // const [submitted, setSubmitted] = useState(false);
 
@@ -32,12 +31,13 @@ const Register = () => {
     }
     // console.log(registerInput, "register")
 
-    const { firstname, lastname, email, password, cpassword } = registerInput
+    const { firstname, lastname, email, password } = registerInput
 
-    const register = () => {
+    const register = (e) => {
+        e.preventDefault()
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-        if (!firstname || !lastname || !email || !password || !cpassword) {
+        if (!firstname || !lastname || !email || !password) {
             return toast.error("Please fill the field")
         } else if (firstname.length < 3) {
             toast.error("First name must be greater than 3")
@@ -51,17 +51,17 @@ const Register = () => {
         else if (password.length < 5) {
             toast.error("Password lenght must be greater than 5")
         }
-        else if (cpassword.length < 5) {
-            toast.error("Confirm password lenght must be greater than 5")
-        }
-        else if (password !== cpassword) {
-            toast.error("password and confirm password must be same")
-        }
+        // else if (cpassword.length < 5) {
+        //     toast.error("Confirm password lenght must be greater than 5")
+        // }
+        // else if (password !== cpassword) {
+        //     toast.error("password and confirm password must be same")
+        // }
         else {
             dispatch(registerForm(registerInput))
             toast.success("Register successfully")
             navigate(LOGIN)
-            setRegisterInput({ firstname: "", lastname: "", email: "", password: "", cpassword: "" })
+            setRegisterInput({ firstname: "", lastname: "", email: "", password: "" })
         }
     }
 
@@ -69,7 +69,7 @@ const Register = () => {
 
 
     const REGISTERFORM = (
-        <div className="form">
+        <form className="form" onSubmit={register}>
             <h2 className='mb-4'>Register Form</h2>
             <div className="input-field">
                 <input
@@ -110,7 +110,7 @@ const Register = () => {
                     onChange={handleRegister}
                 />
             </div>
-            <div className="input-field">
+            {/* <div className="input-field">
                 <input
                     type="password"
                     placeholder='Confirm password'
@@ -118,18 +118,18 @@ const Register = () => {
                     value={registerInput.cpassword}
                     onChange={handleRegister}
                 />
-            </div>
+            </div> */}
 
             <div className="form-btn mt-4">
                 <Button
                     className='btn  col-md-6 col-xs-12'
-                    onClick={() => register()}
+                    type='submit'
                 >
                     Register
                 </Button>
             </div>
             <p className='mt-3 auth'>Have you already account? <NavLink onClick={() => navigate(LOGIN)} >Login</NavLink></p>
-        </div >
+        </form >
     )
 
     return (
