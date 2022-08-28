@@ -1,7 +1,5 @@
 # Getting Started with Create React App
-//redux diagram with or without middleware
-https://medium.com/@aksudupa11/redux-sagas-714370b61692
-\https://akhtarvahid.medium.com/crud-application-in-react-js-with-redux-and-hooks-e0367b6aeeb2
+
 learning react with next js from 02july2022
 
 link:  https://zahidkhan262.github.io/react-todo/
@@ -74,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+//redux diagram with or without middleware
+https://medium.com/@aksudupa11/redux-sagas-714370b61692
+\https://akhtarvahid.medium.com/crud-application-in-react-js-with-redux-and-hooks-e0367b6aeeb2
