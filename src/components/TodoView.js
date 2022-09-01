@@ -99,7 +99,7 @@ const TodoView = () => {
             <div className="fixHeigth">
                 <Container>
                     <Row>
-                        {/* <Col md={6}></Col> */}
+
                         <Col md={12}>
                             {FORM}
                         </Col>
