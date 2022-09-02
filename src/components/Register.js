@@ -1,24 +1,37 @@
-import React, { useState } from 'react'
-import { Button, Col, Container, NavLink, Row } from 'react-bootstrap'
-import { useNavigate } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, NavLink, Row, Spinner } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { LOGIN } from '../../router/constant';
-import { useDispatch } from 'react-redux'
-import { registerForm } from '../../redux/action/authAction';
-
+import { useDispatch, useSelector } from 'react-redux'
+// import { registerForm } from '../../redux/action/authAction';
+import { register, reset } from '../../features/authSlice';
 const Register = () => {
-
     const [registerInput, setRegisterInput] = useState({
         firstname: "",
         lastname: "",
         email: "",
         password: "",
     });
+
+    const { firstname, lastname, email, password } = registerInput
+
     // const [submitted, setSubmitted] = useState(false);
-
-    const dispatch = useDispatch()
-
     const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const {user, isLoading, isError, isSuccess, message} = useSelector((state)=> state.auth)
+
+
+    useEffect(()=>{
+        if(isError) {
+            toast.error(message)
+        }
+        if(isSuccess) {
+            toast.success("Register successfully")
+            navigate(LOGIN)
+        }
+        dispatch(reset())
+    },[user, isError, isLoading, isSuccess, message, navigate, dispatch])
 
     const handleRegister = (e) => {
         const { name, value } = e.target;
@@ -31,9 +44,9 @@ const Register = () => {
     }
     // console.log(registerInput, "register")
 
-    const { firstname, lastname, email, password } = registerInput
+    
 
-    const register = (e) => {
+    const registerForm = (e) => {
         e.preventDefault()
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
@@ -51,32 +64,32 @@ const Register = () => {
         else if (password.length < 5) {
             toast.error("Password lenght must be greater than 5")
         }
-        // else if (cpassword.length < 5) {
-        //     toast.error("Confirm password lenght must be greater than 5")
-        // }
-        // else if (password !== cpassword) {
-        //     toast.error("password and confirm password must be same")
-        // }
         else {
-            dispatch(registerForm(registerInput))
-            toast.success("Register successfully")
-            navigate(LOGIN)
-            setRegisterInput({ firstname: "", lastname: "", email: "", password: "" })
+            const userData = {
+                firstname,
+                lastname,
+                email,
+                password
+            }
+            dispatch(register(userData))
         }
     }
 
 
+    if(isLoading){
+        return <Spinner>Loading</Spinner>
+    }
 
 
     const REGISTERFORM = (
-        <form className="form" onSubmit={register}>
+        <form className="form" onSubmit={registerForm}>
             <h2 className='mb-4'>Register Form</h2>
             <div className="input-field">
                 <input
                     type="text"
                     placeholder='First Name'
                     name='firstname'
-                    value={registerInput.firstname}
+                    value={firstname}
                     autoComplete='off'
                     onChange={handleRegister}
                 />
@@ -86,7 +99,7 @@ const Register = () => {
                     type="text"
                     placeholder='Last Name'
                     name='lastname'
-                    value={registerInput.lastname}
+                    value={lastname}
                     autoComplete='off'
                     onChange={handleRegister}
                 />
@@ -96,7 +109,7 @@ const Register = () => {
                     type="email"
                     placeholder='Email'
                     name='email'
-                    value={registerInput.email}
+                    value={email}
                     autoComplete='off'
                     onChange={handleRegister}
                 />
@@ -106,7 +119,7 @@ const Register = () => {
                     type="password"
                     placeholder='Password'
                     name='password'
-                    value={registerInput.password}
+                    value={password}
                     onChange={handleRegister}
                 />
             </div>
@@ -115,7 +128,7 @@ const Register = () => {
                     type="password"
                     placeholder='Confirm password'
                     name='cpassword'
-                    value={registerInput.cpassword}
+                    value={cpassword}
                     onChange={handleRegister}
                 />
             </div> */}

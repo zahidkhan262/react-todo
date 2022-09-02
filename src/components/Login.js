@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
-import { Button, Col, Container, NavLink, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, NavLink, Row, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
-import { loginForm } from '../../redux/action/authAction'
-import { loadState } from '../../redux/localStorage'
 import { INDEX, REGISTER } from '../../router/constant'
-
+import { login, reset } from '../../features/authSlice';
 const Login = () => {
 
     const [loginInput, setLoginInput] = useState({
         email: "",
         password: "",
     });
+    const { email, password } = loginInput
 
-    const dispatch = useDispatch()
     const navigate = useNavigate();
-    const userData = useSelector((state) => state.auth.userAuth)
+    const dispatch = useDispatch()
+    const {user, isLoading, isError, isSuccess, message} = useSelector((state)=> state.auth)
+    console.log("auths=>>>>>>>>>>>>>>>in loginn", user)
 
-    const user = loadState().auth
-    console.log(user, "<=================localstorage", "===================redux", userData)
+
+    useEffect(()=>{
+        if(isError) {
+            toast.error(message)
+        }
+        if(isSuccess) {
+            toast.success("logged in successfully")
+            navigate(INDEX)
+        }
+        dispatch(reset())
+    },[user, isError, isLoading, isSuccess, message, navigate, dispatch])
+
     const handleLogin = (e) => {
         const { name, value } = e.target;
         setLoginInput(() => {
@@ -31,23 +41,25 @@ const Login = () => {
     }
     // console.log(loginInput, "login")
 
-    const { email, password } = loginInput
+   
 
-    const login = (e) => {
-        e.preventDefault()
-        const isUser = user?.find((user) => user.email === email && user.password === password)
-        localStorage.setItem('userrr=>>>>', JSON.stringify(isUser))
-        if (!isUser) {
-            return toast.error("Invalid Email and Password")
-        }
-        dispatch(loginForm(isUser))
-        toast.success("Logged in")
-        setLoginInput({ email: "", password: "" })
-        navigate(INDEX)
+    const onLogin = (e) => {
+        e.preventDefault();
+
+        const userData = {
+            email,
+            password
+           }
+           dispatch(login(userData))
     }
 
+    if(isLoading){
+        return <Spinner>Loading</Spinner>
+    }
+
+
     const LOGINForm = (
-        <form className="form" onSubmit={login}>
+        <form className="form" onSubmit={onLogin}>
             <h2 className='mb-4'>Login Form</h2>
             <div className="input-field">
                 <input
