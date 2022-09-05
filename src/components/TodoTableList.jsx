@@ -18,7 +18,8 @@ const TodoTableList = () => {
     // view
     const [show, setShow] = useState(false);
     const [showSelectedData, setShowSelectedData] = useState("");
-
+// delete
+    const[showDelete, setShowDelete]= useState(false);
     // update
     const [showEdit, setShowEdit] = useState(false);
     const [update, setUpdate] = useState({
