@@ -3,7 +3,7 @@ import NotFound from './page.gif'
 const PageNotFound = () => {
     return (
         <>
-            <div className='page-not-found'><img src={NotFound} alt="no Data" /></div>
+            <div className='page-not-found'><img src={NotFound} alt="nosw Data" /></div>
         </>
     )
 }
