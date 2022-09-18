@@ -80,7 +80,7 @@ const CreatePost = () => {
                     type="text"
                     placeholder='Full Name'
                     name='fullname'
-                    value={postInput.fullname}
+                    value={fullname}
                     autoComplete='off'
                     onChange={handlePostInput}
                 />
@@ -90,7 +90,7 @@ const CreatePost = () => {
                     type="text"
                     placeholder='Designation'
                     name='designation'
-                    value={postInput.designation}
+                    value={designation}
                     autoComplete='off'
                     onChange={handlePostInput}
                 />
@@ -100,7 +100,7 @@ const CreatePost = () => {
                     type="text"
                     placeholder='Company Name'
                     name='companyName'
-                    value={postInput.companyName}
+                    value={companyName}
                     autoComplete='off'
                     onChange={handlePostInput}
                 />
@@ -110,7 +110,7 @@ const CreatePost = () => {
                     type="text"
                     placeholder='Company Address'
                     name='companyAddress'
-                    value={postInput.companyAddress}
+                    value={companyAddress}
                     autoComplete='off'
                     onChange={handlePostInput}
                 />
@@ -129,7 +129,7 @@ const CreatePost = () => {
 
     return (
         <>
-            <Container className='fixHeigth'>
+            <Container>
                 <Row>
                     {/* <Col md={6}></Col> */}
                     <Col md={12}>
