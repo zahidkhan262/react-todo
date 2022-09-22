@@ -19,11 +19,11 @@ const MyPagination = ({ totalPosts, PostPerPage, handlePagination }) => {
                     ))}
                 </ul>
             </nav>
-            {/* <div className="paginationList">
+            {<div className="paginationList">
                 {pageNumbers.map((numbers) => (
                     <Pagination.Item >{numbers}</Pagination.Item>
                 ))}
-            </div> */}
+            </div>}
         </>
     )
 }
