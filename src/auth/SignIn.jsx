@@ -60,14 +60,14 @@ const SignIn = () => {
 
                             <input type="text" placeholder='Enter your Email....'
                                 name="email"
-                                value={formInput.name} onChange={signInHandle}
+                                value={formInput?.name} onChange={signInHandle}
                             />
                         </div>
                         <div className="input_form">
 
                             <input type="password" placeholder='Enter your Password.....'
                                 name="password"
-                                value={formInput.name} onChange={signInHandle}
+                                value={formInput?.name} onChange={signInHandle}
                             />
                         </div>
                         <div className="btn-1">
