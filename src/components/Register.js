@@ -42,7 +42,6 @@ const Register = () => {
             }
         })
     }
-    // console.log(registerInput, "register")
 
     
 
@@ -123,7 +122,7 @@ const Register = () => {
                     onChange={handleRegister}
                 />
             </div>
-            {/* <div className="input-field">
+            <div className="input-field">
                 <input
                     type="password"
                     placeholder='Confirm password'
@@ -131,7 +130,7 @@ const Register = () => {
                     value={cpassword}
                     onChange={handleRegister}
                 />
-            </div> */}
+            </div>
 
             <div className="form-btn mt-4">
                 <Button
