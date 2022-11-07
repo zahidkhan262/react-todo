@@ -170,7 +170,7 @@ const TodoTableList = () => {
                             </tbody>
 
                         </Table>
-                        : <div className='no-data'><img src={noData} alt="no Data" /></div>
+                        : <div className='no-data'><img src={noData} alt="no Data image picture" /></div>
                 }
 
                 {/* view modal  */}
