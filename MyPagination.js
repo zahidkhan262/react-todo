@@ -33,9 +33,9 @@ export default MyPagination
 
 // filter data by keys\
 
-// filter by keys  
-    // const search = (data) => {
-    //     return data?.filter((items) => (
-    //         dataKeys?.some((key) => items[key]?.toString().includes(query) || items[key]?.toString().toLowerCase().includes(query) || items[key]?.toString().toUpperCase().includes(query))
-    //     ));
-    // }
+// filter by keys  and with entire value
+    const search = (data) => {
+        return data?.filter((items) => (
+            dataKeys?.some((key) => items[key]?.toString().includes(query) || items[key]?.toString().toLowerCase().includes(query) || items[key]?.toString().toUpperCase().includes(query))
+        ));
+    }
