@@ -173,14 +173,39 @@ const queryData = async (req, res) => {
 
 // learn about setter getter function in schema  
 const setterGetter = async (req, res) => {
-    let result = await Users.create({ name: 'jamy', email: 'jam@test.com', age: 30 })
-    result = res.json(result)
+    try {
+        let result = await Users.create({ name: 'babes', email: 'babes@test.com', age: 30 })
+        result = res.json(result)
+    } catch (error) {
+        let messages = {}
+        error.errors.forEach(err => {
+            let message;
+            console.log(err, "err")
+            switch (err.validatorKey) {
+                case 'not_unique':
+                    message = 'Duplicate Email';
+                    break;
+                default:
+                    err.msg
+            }
+            messages[err.path] = message
+            console.log(message, "mss")
+        });
+
+    }
 }
 
 // learn about constraint and validation 
 //  constraint work with only database for validation use in model schema
 // validation work with sequelize for validation
 
+
+const rawQuery = async (req, res) => {
+    let users = await db.sequelize.query('Select * from users', {
+        type: QueryTypes.SELECT
+    })
+    res.json({ users })
+}
 
 module.exports = {
     getAllUsers,
