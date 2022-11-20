@@ -30,7 +30,7 @@ const Data = () => {
     
   return (
       <>
-      {apiData.length ?
+      {apiData && apiData.length ?
       <MyTable col={columns} row={apiData}  />
       :<Loading  />
     }
