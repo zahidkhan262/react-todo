@@ -90,6 +90,16 @@ const generateToken = (id) => {
 })
 }
 
+// we can also write like it
+// jwt.sign({id}, JWT_SECRET, (err, decoded)=>{
+// if(!err){
+// res.status(200).json({
+// token:decoded,
+//     user:user
+// })
+// }
+// })
+
 module.exports ={
     loginUser,
     registerUser,
