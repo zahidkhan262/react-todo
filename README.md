@@ -3,6 +3,8 @@ https://www.digitalocean.com/community/tutorials/api-authentication-with-json-we
 
 https://github.com/auth0/node-jsonwebtoken
 
+https://dev.to/calvinqc/a-step-by-step-guide-to-setting-up-a-node-js-api-with-passport-jwt-5fa5  //validation
+
 learning react with next js from 02july2022
 
 link:  https://zahidkhan262.github.io/react-todo/
