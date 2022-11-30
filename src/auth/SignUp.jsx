@@ -61,3 +61,34 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+
+
+
+
+// formik
+
+// schema
+// Yup.object({
+
+//     test :Yup.string().min(2,'error msg').max(15,'error msg').required('field'),
+// })
+// input msg
+// { errors.test && touched.test ?( <p className="form-error">{errors.test}</p>):null}
+
+//                     value={values.test}
+//                     onChange={handleChange}
+                    
+//                     onBlur={handleBlur}
+
+//    const {values,errors,handleChange,touched, handleBlur,handleSubmit} = useFormik({
+//         initialValues:initialValues,
+//         validationSchema:SignUpSchema,
+//         onSubmit:(values)=>{
+//             console.log('value ',values)
+//             localStorage.setItem("user", JSON.stringify(values));
+//             navigate('/');
+//         }
+//     })
+
+
