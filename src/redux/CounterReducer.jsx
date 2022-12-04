@@ -1,5 +1,6 @@
 import { INCREMENT,DECREMENT } from "./CounterType"
 const initialState=0;
+// str.trim().length !== 0
 
 const CounterReducer=(state=initialState,action)=>{
 
