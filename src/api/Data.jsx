@@ -39,3 +39,20 @@ const Data = () => {
 };
 
 export default Data;
+
+
+axios.post(session_url, {
+    withCredentials: true,
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    }
+  },{
+    auth: {
+      username: "USERNAME",
+      password: "PASSWORD"
+  }}).then(function(response) {
+    console.log('Authenticated');
+  }).catch(function(error) {
+    console.log('Error on Authentication');
+  });
