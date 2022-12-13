@@ -10,7 +10,8 @@ function GlobalContextProvider(props) {
 
     const initialValue = { 
         email: "", 
-        password: "" 
+        password: "" ,
+        token:"",
     }
 
 
