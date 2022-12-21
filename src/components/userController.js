@@ -83,7 +83,7 @@ const loginUser = asyncHandler(async(req, res)=>{
 })
 
 //-----------------------Generate JWT token---------------------------------//
-
+// here we can also pass all user data..
 const generateToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn : '30d'
