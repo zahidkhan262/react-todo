@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+slide show => link=> slide.com/zahidkhan262/deck/edit
 //learning today credit-card-type
 https://github.com/braintree/credit-card-type
 https://www.digitalocean.com/community/tutorials/api-authentication-with-json-web-tokensjwt-and-passport
