@@ -68,12 +68,12 @@ export default CustomAccordion;
             {
                 title: tab1,
                 expanded: false,
-                content: (<GovernmentPrograms selectedState={[...lifeLineArray].find(state => state.Value === selectedState.Value)} />)
+                content: (<govP selectedState={[...lifeArray].find(state => state.Value === selectedState.Value)} />)
             },
             {
                 title: tab2,
                 expanded: false,
-                content: (<HouseholdIncome selectedState={[...lifeLineArray].find(state => state.Value === selectedState.Value)} />)
+                content: (<house selectedState={[...lifeArray].find(state => state.Value === selectedState.Value)} />)
             }
         ]} />
 </div>
