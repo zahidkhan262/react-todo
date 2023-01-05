@@ -39,3 +39,11 @@ export default MyPagination
             dataKeys?.some((key) => items[key]?.toString().includes(query) || items[key]?.toString().toLowerCase().includes(query) || items[key]?.toString().toUpperCase().includes(query))
         ));
     }
+
+    
+    const expdate = '0421';
+const expDateFormatter = expdate.replace(/\//g, "").substring(0, 2) + 
+  (expdate.length > 2 ? '/' : '') + 
+  expdate.replace(/\//g, "").substring(2, 4);
+  
+console.log(expDateFormatter)
