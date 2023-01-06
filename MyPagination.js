@@ -47,3 +47,7 @@ const expDateFormatter = expdate.replace(/\//g, "").substring(0, 2) +
   expdate.replace(/\//g, "").substring(2, 4);
   
 console.log(expDateFormatter)
+
+<button onclick="open()" >open</button>
+
+
