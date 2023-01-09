@@ -7,6 +7,7 @@ import Loading from './Loading'
 const Data = () => {
 
     const API_URL="https://jsonplaceholder.typicode.com/todos";
+    const Weather_API_KEY = 'a229595aedecb9153c053b3eb331b952'
 
 
     const [apiData, setApiData] = useState([])
