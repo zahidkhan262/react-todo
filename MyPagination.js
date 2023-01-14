@@ -50,6 +50,9 @@ console.log(expDateFormatter)
 
 <button onclick="open()" >open</button>
 
+const timer =(sec)=> new Date().toLocaleTimeString().slice(13,19)
+clg(timer)
+
 export const quiz = {
     topic: 'Javascript',
     level: 'Beginner',
