@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect , useState } from 'react';
 import MyTable from './MyTable';
 import Loading from './Loading'
-
+import './index.css'
 
 const Data = () => {
 
