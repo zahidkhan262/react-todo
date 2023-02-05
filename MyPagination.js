@@ -128,4 +128,20 @@ let x = setInterval(function() {
     }, 1000);
 
 
+//     if (email === "") {
+            toast.error("please enter your email...")
+        } else if (!email.includes("@")) {
+            toast.error("Please enter a valid email")
+        } else if (password === "") {
+            toast.error("please enter your password...")
+        } else if (password.length < 6) {
+            toast.error("password must be 6 char")
+        } else {
+
+            toast.success("you'r login successfully")
+        }
+
+
+
+
 
